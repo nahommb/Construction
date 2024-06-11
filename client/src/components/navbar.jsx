@@ -2,10 +2,12 @@ import React from 'react';
 import styled from 'styled-components'
 import {color} from 'styled-system'
 
+
 const Navbarcontainer = styled.nav `
   ${color}
   background-color:#2A243990;
-  height:2rem;
+  border-bottom-left-radius:25px;
+  height:2.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -13,36 +15,63 @@ const Navbarcontainer = styled.nav `
 `;
 
 const Navbarbranding = styled.div`
-
+padding-left:30px;
 width:10rem;
 height:50px;
 ${'' /* background-color:red; */}
 display: flex;
 align-items:center;
+@media screen and (max-width: 768px){
+    width:5rem;
+    },
+`;
+
+
+const Navbarsearch = styled.input`
+  width: 30rem;
+  height: 40px;
+  border-radius: 20px;
+  border: none;
+  /* background-color: red; */
+  display: flex;
+  align-items: center;
+
+  @media screen and (max-width: 600px) {
+    width: 15rem;
+    ${'' /* background-color: blue; */}
+  }
 `;
 
 
 const Navbarelements = styled.div`
-
-width:20rem;
-height:50px;
-background-color:red;
-display: flex;
-align-items:center;
-`;
-
+  height:2rem;
+  width:10rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  ${'' /* background-color:red; */}
+  padding: 1rem;
+  @media screen and (max-width: 768px){
+    width:5rem;
+    },
+`; 
 
 const Navbar = ()=>{
 
 return <>
  <Navbarcontainer>
     <Navbarbranding>
-        <p>logo</p>
+        <p>iConstruction</p>
     </Navbarbranding>
-    <Navbarelements></Navbarelements>
-    <dev style={{width:'300px',height:'50px',backgroundColor:'red'}}>
-      language
-    </dev>
+    <Navbarsearch>
+    
+    </Navbarsearch>
+    <Navbarelements>
+       <div>language</div>
+       <div>About</div>
+       <div>contact</div>
+
+    </Navbarelements>
 
  </Navbarcontainer>
 </>
