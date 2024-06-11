@@ -5,13 +5,16 @@ import {color} from 'styled-system'
 
 const Navbarcontainer = styled.nav `
   ${color}
-  background-color:#2A243990;
+  background-color:orange;
   border-bottom-left-radius:25px;
   height:2.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 1rem;
+  position:fixed;
+  width:100%;
+  z-index:10;
 `;
 
 const Navbarbranding = styled.div`
