@@ -31,7 +31,7 @@ border-radius:30px;
 margin-left:30%;
 position:relative;
 top:200px;
-margin-bottom:100px;
+${'' /* margin-bottom:100px; */}
 margin-right:30px;
 display:grid;
 grid-template-columns: repeat(auto-fill, minmax(100px,400px));
@@ -58,12 +58,19 @@ margin:10px;
 
 const Banner = ()=>{
 
+const listOfContractors = [
+    1,2,3,4,5,6,7
+];
+
 
 return <>
    <BannerImageContainer>
      <p style={{color:'silver',position:'relative',top:'680px'}}>We Build Your <br/><p style={{color:'red',marginLeft:'30%'}}>Life</p></p>
    </BannerImageContainer>
    <BannerElement hideScrollbar>
+     {listOfContractors.map((list)=>{
+        return<Box></Box>
+     })}
        <Box>
         <div style={{height:'200px',backgroundColor:'red'}}>
 
@@ -73,7 +80,7 @@ return <>
        <Box></Box>
 
    </BannerElement>
-    <div style={{height:'500px',backgroundColor:'black',position:'relative',top:'500px'}}>
+    <div style={{height:'500px',backgroundColor:'black',position:'relative',top:'300px'}}>
 
 </div>
 </>
