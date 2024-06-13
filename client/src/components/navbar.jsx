@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components'
 import {color} from 'styled-system'
-
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 const Navbarcontainer = styled.nav `
   ${color}
@@ -45,6 +45,7 @@ const Navbarsearch = styled.input`
   /* background-color: red; */
   display: flex;
   align-items: center;
+  padding-left:20px;
 
   @media screen and (max-width: 1000px) {
     position:fixed;
@@ -55,17 +56,18 @@ const Navbarsearch = styled.input`
   }
   @media screen and (max-width: 500px) {
     position:fixed;
-    top:120px;
+    top:100px;
     margin:auto;
     width: 20rem;
-    background-color: green;
+    background-color: transparent;
+    border:2px solid red;
   }
 `;
 
 
 const Navbarelements = styled.div`
   height:2rem;
-  width:10rem;
+  width:15rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -73,10 +75,22 @@ const Navbarelements = styled.div`
   ${'' /* background-color:red; */}
   padding: 1rem;
   @media screen and (max-width: 768px){
-    width:5rem;
+    ${'' /* width:10rem; */}
     margin-right:40%;
     },
 `; 
+
+const RegisterButton = styled.button`
+
+background-color:white;
+height:40px;
+width:100px;
+color:white;
+border: none;
+border-radius:10px;
+
+
+`;
 
 const Navbar = ()=>{
 
@@ -89,9 +103,9 @@ return <>
     
     </Navbarsearch>
     <Navbarelements>
-       <div>Contact</div>
        <div>About</div>
        <div>language</div>
+       <RegisterButton><Link style={{textDecoration:'none'}} to='/register'>Rigister</Link></RegisterButton>
 
     </Navbarelements>
 
