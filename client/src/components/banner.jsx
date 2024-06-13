@@ -1,5 +1,6 @@
 import bannerImage from '../assets/bannerImage1.jpg'
 import  styled from 'styled-components';
+ import { useNavigate } from 'react-router-dom';
 
 const BannerImageContainer = styled.div`
    background-color:red;
@@ -61,9 +62,16 @@ margin:10px;
 @media screen and (max-width:600px){
     height:200px;
 }
+&:hover{
+  background-color:red;
+  opacity:0.3;
+  cursor:pointer;
+}
 `;
 
 const Banner = ()=>{
+
+   const navigate = useNavigate();
 
 const listOfContractors = [
     1,2,3,4,5,6,7
@@ -76,7 +84,10 @@ return <>
    </BannerImageContainer>
    <BannerElement hidescrollbar>
      {listOfContractors.map((list,index)=>{
-        return<Box key={index}></Box>
+        return<Box key={index} onClick={()=>{
+          console.log('clicked'); 
+        navigate(`/sites/${index}`)
+        }}></Box>
      })}
        <Box>
         <div style={{height:'200px',backgroundColor:'red'}}>
