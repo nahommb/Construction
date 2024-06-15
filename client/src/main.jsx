@@ -13,7 +13,7 @@ const router = createBrowserRouter([
    errorElement:<h2>error</h2>
   },
   {
-   path:'/register/:name',
+   path:'/register',
    element:<Register/>
   },
   {

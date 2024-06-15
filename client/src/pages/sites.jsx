@@ -1,7 +1,14 @@
+import SiteBanner from "../components/siteBanner";
+import SiteNavbar from "../components/siteNavbar";
+
 const Sites = ()=>{
 
+
+
+
     return<>
-        Each Sites
+        <SiteNavbar name = 'abebe'/>
+        <SiteBanner></SiteBanner>
     </>
 }
 export default Sites;
