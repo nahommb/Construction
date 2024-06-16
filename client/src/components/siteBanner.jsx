@@ -1,9 +1,10 @@
 const SiteBanner = ()=>{
 
 return <>
-  <div style={{height:'700px',backgroundColor:'red',position:'relative',top:'-60px',zIndex:'-1'}}>
+  <div style={{height:'700px',backgroundColor:'silver',position:'relative',top:'-60px',zIndex:'-1'}}>
       
   </div>
+
 </>
 }
 

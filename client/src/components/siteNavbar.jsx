@@ -38,6 +38,10 @@ const CompanyNav = styled.div`
   position:relative;
   top:-20px;
   border-radius:0px 0px 10px 10px;
+  display:flex;
+  padding-left:20px;
+  align-items:center;
+  
 `;
 
 return <>
@@ -65,7 +69,7 @@ return <>
         </InformationBox>
 
      </Navbar>
-     <CompanyNav></CompanyNav>
+     <CompanyNav>Name</CompanyNav>
 </>
 }
 
