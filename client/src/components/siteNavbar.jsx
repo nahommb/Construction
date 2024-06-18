@@ -32,7 +32,7 @@ const Circle = styled.div`
 
 const CompanyNav = styled.div`
   height:60px;
-  background-color:orange;
+  background-color:#FF7B00;
   width:80%;
   margin:auto;
   position:relative;

@@ -3,7 +3,7 @@ import bannerImage from '../assets/bannerImage.jpg'
 
 
 const DiscriptionBox = styled.div`
-height:700px;
+height:600px;
 background-color:white;
 position:relative;
 top:-60px;

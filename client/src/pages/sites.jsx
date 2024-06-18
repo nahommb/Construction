@@ -1,6 +1,9 @@
+import Services from "../components/services";
 import SiteBanner from "../components/siteBanner";
 import SiteDescription from "../components/siteDescription";
+import SiteFooter from "../components/siteFooter";
 import SiteNavbar from "../components/siteNavbar";
+import SiteValue from "../components/siteValue";
 
 const Sites = ()=>{
 
@@ -11,6 +14,13 @@ const Sites = ()=>{
         <SiteNavbar name = 'abebe'/>
         <SiteBanner></SiteBanner>
         <SiteDescription></SiteDescription>
+        <Services></Services>
+        <SiteValue title = '' heading = ''></SiteValue>
+        <br></br>
+        <SiteValue></SiteValue>
+
+        <SiteFooter></SiteFooter>
+
     </>
 }
 export default Sites;
