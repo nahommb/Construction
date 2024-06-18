@@ -1,30 +1,51 @@
 import  styled  from "styled-components";
 
 const ServiceContainer = styled.div`
-background-color:#E9F6FF;
+${'' /* background-color:#D9D9D9; */}
 height:300px;
 display:flex;
 justify-content:space-between;
 align-items:center;
-padding:0px 70px 0px 70px;
+padding:10px 70px 10px 70px;
 
 `;
 const ServiceBox = styled.div`
-height:180px;
-width:25em;
-background-color:orange;
+height:150px;
+width:22em;
+background-color:#FF7B00;
 border-radius:10px;
+padding:30px;
+display:flex;
+margin-right:20px;
+${'' /* justify-content:space-between; */}
+${'' /* align-items:center; */}
+color:white;
 `;
 
+const SiteIcon = styled.div`
+height:150px;
+width:150px;
+background-color:#D9D9D9;
+margin-right:30px;
+`;
 const Services = ()=>{
   
     
 
     return <>
       <ServiceContainer>
-        <ServiceBox></ServiceBox>
-        <ServiceBox></ServiceBox>
-        <ServiceBox></ServiceBox>
+        <ServiceBox>
+           <SiteIcon></SiteIcon>
+             Construction
+        </ServiceBox>
+        <ServiceBox>
+           <SiteIcon></SiteIcon>
+            Architecture
+        </ServiceBox>
+        <ServiceBox>
+           <SiteIcon></SiteIcon>
+            Consulating
+        </ServiceBox>
 
       </ServiceContainer>
     </>

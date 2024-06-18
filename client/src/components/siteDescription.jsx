@@ -1,5 +1,5 @@
 import  styled  from "styled-components";
-import bannerImage from '../assets/bannerImage.jpg'
+import bannerImage from '../assets/constructionTools.jpg'
 
 
 const DiscriptionBox = styled.div`
@@ -23,9 +23,10 @@ padding-top:60px;
 const ImageContent = styled.div`
 height:500px;
 width:50%;
-border-radius:20px;
+border-radius:10px;
+margin-right:10px;
 background-image:url(${bannerImage});
-background-color:red;
+${'' /* background-color:red; */}
 background-position:center;
 background-size:cover;
 `;
@@ -56,7 +57,9 @@ const SiteDescription = ()=>{
         <DiscriptionBox>
             <Content>
                 <h3>We can we help </h3>
+                <br></br>
                 <h1>Welcome To Construction Real Solutions</h1>
+                <br></br>
                 <p>Our team of experts specializes in designing and construction</p>
                 <P>pecializes in designing and constructing</P>
                 <P>Strong understanding of our clients' needs and goals</P>

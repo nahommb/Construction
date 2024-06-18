@@ -7,7 +7,7 @@ const Navbar = styled.div`
    ${'' /* justify-content:space-between; */}
    height:70px;
    color:white;
-   background-color:black;
+   background-color:#2D3E4E;
    padding-left:150px;
    padding-top:20px;
 `;
