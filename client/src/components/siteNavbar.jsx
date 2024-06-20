@@ -41,7 +41,7 @@ const CompanyNav = styled.div`
   display:flex;
   padding-left:20px;
   align-items:center;
-  
+  color:white;
 `;
 
 return <>

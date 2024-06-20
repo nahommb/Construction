@@ -7,7 +7,7 @@ display:flex;
 justify-content:space-between;
 padding:10px 0px 0px 80px;
 align-items:center;
-margin-bottom:50px;
+margin-bottom:20px;
 `;
 
 const FooterBox = styled.div`
@@ -41,8 +41,9 @@ const SiteFooter = ()=>{
               <P>Phone : 099876543</P>
               <P>Email:abebe@gmail.com</P>
             </FooterBox>
-
+            
         </Footer>
+        <p style={{margin:'10px'}}>  &copy; {new Date().getFullYear()} Company Name. All rights reserved.</p>
     </>
 }
 
