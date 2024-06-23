@@ -1,10 +1,12 @@
 import React from 'react';
 import styled from 'styled-components'
-import {color} from 'styled-system'
+import {color,space} from 'styled-system'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Navbarcontainer = styled.nav `
   ${color}
+  
   background-color:orange;
   border-bottom-left-radius:130px;
   height:4.5rem;
@@ -67,7 +69,7 @@ const Navbarsearch = styled.input`
 
 const Navbarelements = styled.div`
   height:2rem;
-  width:15rem;
+  width:22rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -80,19 +82,24 @@ const Navbarelements = styled.div`
     },
 `; 
 
-const RegisterButton = styled.button`
-
-background-color:white;
+const Button = styled.button`
+ ${color}
+${space}
+${'' /* background-color:red; */}
 height:40px;
 width:100px;
-color:white;
 border: none;
 border-radius:10px;
-
-
+marginLeft:30px;
+&:hover{
+  cursor:pointer;
+  opacity:0.5;
+}
 `;
 
 const Navbar = ()=>{
+
+  const navigate = useNavigate()
 
 return <>
  <Navbarcontainer color='white'>
@@ -105,7 +112,8 @@ return <>
     <Navbarelements>
        <div>About</div>
        <div>language</div>
-       <RegisterButton><Link style={{textDecoration:'none'}} to='/register'>Rigister</Link></RegisterButton>
+       <Button bg='white' color='blue' onClick={()=>navigate('/register')}>Register</Button>
+       <Button bg='green' color='white' onClick={()=>navigate('/register')}>Login</Button>
 
     </Navbarelements>
 

@@ -1,6 +1,8 @@
 import bannerImage from '../assets/bannerImage1.jpg'
 import  styled from 'styled-components';
- import { useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch} from 'react-redux';
+import { register } from '../redux/registerationState/registerationAction';
 
 const BannerImageContainer = styled.div`
    background-color:red;
@@ -71,22 +73,31 @@ margin:10px;
 
 const Banner = ()=>{
 
-   const navigate = useNavigate();
+const navigate = useNavigate();
+
+const dispatch = useDispatch()
 
 const listOfContractors = [
     1,2,3,4,5,6,7
 ];
 
+const data ={
+  name:'abebe',
+  age:10
+}
 
 return <>
    <BannerImageContainer>
      <p style={{color:'silver',position:'relative',top:'680px'}}>We Build Your <br/><p style={{color:'red',marginLeft:'30%'}}>Life</p></p>
    </BannerImageContainer>
    <BannerElement hidescrollbar>
+
      {listOfContractors.map((list,index)=>{
         return<Box key={index} onClick={()=>{
           console.log('clicked'); 
+          // dispatch(addToCart(data))
         navigate(`/sites/${index}`)
+
         }}></Box>
      })}
        <Box>
