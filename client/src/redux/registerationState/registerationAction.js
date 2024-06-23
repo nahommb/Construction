@@ -4,5 +4,6 @@ export const register = (data)=>{
     
     return{
         type:REGISTER,
+        data
     }
 }

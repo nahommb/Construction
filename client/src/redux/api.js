@@ -1,7 +1,16 @@
 import axios from 'axios';
 
 export const postData = async (payload) => {
-  const response = await axios.post('https://example.com/api/endpoint', payload);
+
+    axios.defaults.withCredentials = true;
+
+  const response = await axios.post('http://localhost:3001/register', payload, {
+    headers: {
+    'Content-Type': 'application/json'
+}
+});
+
   return response.data;
 };
+
 export const fetchUsers = () => axios.get('https://api.github.com/users') //then(response => response.json());

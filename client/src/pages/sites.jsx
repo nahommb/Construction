@@ -13,7 +13,7 @@ const Sites = ()=>{
  const dispatch = useDispatch();
 useEffect(()=>{
 
-    dispatch(register({'name':'lee'}))
+    // dispatch(register({'name':'lee'}))
 
 },[])
 
