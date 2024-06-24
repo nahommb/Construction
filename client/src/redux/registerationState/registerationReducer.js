@@ -15,6 +15,6 @@ export const registerData = (state = initialState,action)=>{
                 items: [...state.items, action.payload],
             }
         default :
-        return state;
+         return state;
     }
 } 
