@@ -5,11 +5,45 @@ import { styled } from "styled-components";
 
 const Container = styled.div`
 height:400px;
-width:400px;
-${'' /* background-color:red; */}
-margin:auto;
-margin-top:20%
+
+background-color:blue;
+opacity:0.3;
+z-index:1;
+
 `;
+
+const Form = styled.form`
+height:500px;
+background-color:white;
+position:relative;
+padding-top:50px;
+top:-130px;
+z-index:-1;
+margin:20px;
+border-radius:20px;
+box-shadow:2px 2px 20px black;
+
+`;
+
+const FormHeader = styled.div`
+display:flex;
+height:80px;
+width:500px;
+align-items:center;
+margin:auto;
+justify-content:space-between;
+`;
+
+const P = styled.p`
+  font-weight: bold;
+  &:hover {
+    font-size: 40px;  // Adjusted to a more reasonable size
+    cursor: pointer;
+    color: red;
+  }
+`;
+
+
 
 const Register = ()=>{
 
@@ -22,41 +56,16 @@ const dispatch = useDispatch()
    }))
  })
     return <>
-        <Container>
-            
-        <form class="form">
-    <p class="title">Register </p>
-    <p class="message">Signup now and get full access to our app. </p>
-        <div class="flex">
-        <label>
-            <input class="input" type="text" placeholder="" required=""/>
-            <span>Firstname</span>
-        </label>
-
-        <label>
-            <input class="input" type="text" placeholder="" required=""/>
-            <span>Lastname</span>
-        </label>
-    </div>  
-            
-    <label>
-        <input class="input" type="email" placeholder="" required=""/>
-        <span>Email</span>
-    </label> 
+        <Container></Container>
+        <Form>
+            <center><h1>Login Page</h1></center>
+            <FormHeader>
+                <P>Login</P>
+                <P>Forgot Password</P>
+               
+            </FormHeader>
+        </Form>
         
-    <label>
-        <input class="input" type="password" placeholder="" required=""/>
-        <span>Password</span>
-    </label>
-    <label>
-        <input class="input" type="password" placeholder="" required=""/>
-        <span>Confirm password</span>
-    </label>
-    <button class="submit">Submit</button>
-    <p class="signin">Already have an acount ? <a href="#">Signin</a> </p>
-</form>
-
-        </Container>
     </>
 }
 
