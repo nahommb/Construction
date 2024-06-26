@@ -1,4 +1,4 @@
-import { useEffect,} from "react";
+import { useEffect,useState} from "react";
 import { useDispatch } from "react-redux";
 import { register } from "../redux/registerationState/registerationAction";
 import { styled } from "styled-components";
@@ -52,13 +52,25 @@ margin-bottom:10px;
 display:block;
 `;
 
-const InputContainer = styled(FormHeader)`
+const LoginInputContainer = styled(FormHeader)`
  display:block;
+ height:150px;
+ ${'' /* background-color:red; */}
+ width:350px;
+ 
 `;
-// const [isLogin,setIsLogin] = useState(true)
+const InputContainer = styled.div`
+width:700px;
+margin:auto;
+display:flex;
+${'' /* background-color:blue; */}
+justify-content:space-around;
+`;
 
 
 const Register = ()=>{
+
+const [isLogin,setIsLogin] = useState(true)
 
 const dispatch = useDispatch()
  useEffect(()=>{
@@ -71,18 +83,26 @@ const dispatch = useDispatch()
     return <>
         <Container></Container>
         <Form>
-            <center><h1>Login Page</h1></center>
+            <center>{isLogin?<h1>Login</h1>:<h1>Forgot Password</h1>}</center>
             <FormHeader>
-                <P onClick={()=>console.log('clicked')}>Login</P>
-                <P>Forgot Password</P>         
+                <P onClick={()=>setIsLogin(true)}>Login</P>
+                <P onClick={()=>setIsLogin(false)}>Forgot Password</P>         
             </FormHeader>
+             
              <InputContainer>
+               {isLogin?
+                <LoginInputContainer>
               <label>Email</label>
                 <TextField/>
               <label>Password</label>
                 <TextField/>
+             </LoginInputContainer>:
+             <LoginInputContainer>
+              <label>Email</label>
+                <TextField/>
+             </LoginInputContainer>
+             }
              </InputContainer>
-            
         </Form>
         
     </>
