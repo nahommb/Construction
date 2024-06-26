@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect,} from "react";
 import { useDispatch } from "react-redux";
 import { register } from "../redux/registerationState/registerationAction";
 import { styled } from "styled-components";
@@ -41,7 +41,21 @@ const P = styled.p`
     cursor: pointer;
   }
 `;
+const TextField = styled.input`
+height:40px;
+width:300px;
+${'' /* background-color:red; */}
+border:1px solid blue;
+border-radius:8px;
+padding-left:10px;
+margin-bottom:10px;
+display:block;
+`;
 
+const InputContainer = styled(FormHeader)`
+ display:block;
+`;
+// const [isLogin,setIsLogin] = useState(true)
 
 
 const Register = ()=>{
@@ -60,9 +74,15 @@ const dispatch = useDispatch()
             <center><h1>Login Page</h1></center>
             <FormHeader>
                 <P onClick={()=>console.log('clicked')}>Login</P>
-                <P>Forgot Password</P>
-               
+                <P>Forgot Password</P>         
             </FormHeader>
+             <InputContainer>
+              <label>Email</label>
+                <TextField/>
+              <label>Password</label>
+                <TextField/>
+             </InputContainer>
+            
         </Form>
         
     </>
