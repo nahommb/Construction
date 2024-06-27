@@ -69,7 +69,7 @@ const Navbarsearch = styled.input`
 
 const Navbarelements = styled.div`
   height:2rem;
-  width:22rem;
+  width:7rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -112,8 +112,8 @@ return <>
     <Navbarelements>
        <div>About</div>
        <div>language</div>
-       <Button bg='white' color='blue' onClick={()=>navigate('/register')}>Register</Button>
-       <Button bg='green' color='white' onClick={()=>navigate('/register')}>Login</Button>
+       {/* <Button bg='white' color='blue' onClick={()=>navigate('/register')}>Register</Button> */}
+       {/* <Button bg='green' color='white' onClick={()=>navigate('/register')}>Login</Button> */}
 
     </Navbarelements>
 

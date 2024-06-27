@@ -1,8 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
-import Register from "./pages/register";
+import Register from "./pages/login.jsx";
 import Sites from './pages/sites.jsx';
+import AdminLogin from './components/adminLogin.jsx';
 
 import { createBrowserRouter,RouterProvider } from 'react-router-dom';
 import { Provider } from 'react-redux';
@@ -21,7 +22,8 @@ const router = createBrowserRouter([
   {
     path:'/sites/:sitename',
     element:<Sites/>
-  }
+  },
+  { path:"/login" ,element:<AdminLogin/>}
 ])
 ReactDOM.createRoot(document.getElementById('root')).render(
 

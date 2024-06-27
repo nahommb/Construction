@@ -1,4 +1,5 @@
-import { useEffect,useState} from "react";
+import { useEffect,useState,} from "react";
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { register } from "../redux/registerationState/registerationAction";
 import { styled } from "styled-components";
@@ -48,8 +49,16 @@ ${'' /* background-color:red; */}
 border:1px solid blue;
 border-radius:8px;
 padding-left:10px;
-margin-bottom:10px;
+margin:6px 0px 10px 0px;
 display:block;
+
+&:focus {
+    border: none;
+    font-size:20px;
+    outline: none; 
+    box-shadow: 0 0 0 2px orange; 
+  }
+
 `;
 
 const LoginInputContainer = styled(FormHeader)`
@@ -67,22 +76,48 @@ ${'' /* background-color:blue; */}
 justify-content:space-around;
 `;
 
+const Button = styled.button`
+background-color:green;
+opacity:0.7;
+height:40px;
+width:120px;
+border:none;
+color:white;
+border-radius:6px;
+&:hover{
+    cursor:pointer;
+    opacity:1;
+}
+`;
 
-const Register = ()=>{
+const Login = ()=>{
 
 const [isLogin,setIsLogin] = useState(true)
+const [email,setEmail] = useState()
+const [password,setPassword] = useState()
+
+const navigate = useNavigate()
 
 const dispatch = useDispatch()
- useEffect(()=>{
-   dispatch(register({
-    company_name:'nahom',
-    password:'123456',
-    emial:'hiopokopo'
-   }))
- })
+
+
+
+ const login = ()=>{
+    if(email.trim()!='' && password.trim()!=''){
+    dispatch(register({
+        company_name:email,
+        password:'123456',
+        emial:'hiopokopo'
+       }))
+       navigate('/')
+       console.log(email)
+    }
+  
+ }
+
     return <>
         <Container></Container>
-        <Form>
+        <Form >
             <center>{isLogin?<h1>Login</h1>:<h1>Forgot Password</h1>}</center>
             <FormHeader>
                 <P onClick={()=>setIsLogin(true)}>Login</P>
@@ -93,13 +128,15 @@ const dispatch = useDispatch()
                {isLogin?
                 <LoginInputContainer>
               <label>Email</label>
-                <TextField/>
+                <TextField onChange={(val)=>setEmail(val.target.value)}/>
               <label>Password</label>
                 <TextField/>
+                <Button onClick={()=>login()}>Submit</Button>
              </LoginInputContainer>:
              <LoginInputContainer>
               <label>Email</label>
                 <TextField/>
+                <p>Reset password will be sent to enterd email address</p>
              </LoginInputContainer>
              }
              </InputContainer>
@@ -108,4 +145,4 @@ const dispatch = useDispatch()
     </>
 }
 
-export default Register;
+export default Login;

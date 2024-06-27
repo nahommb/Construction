@@ -10,7 +10,7 @@ function* getData(action){
        let response = yield call(postData, action.data)
        console.log(action.data)
        console.log(response)
-      // console.log(data)    
+      // console.log(data)     
     }
    catch(err){ 
      console.log('errro')
