@@ -111,7 +111,7 @@ const dispatch = useDispatch()
     if(email!== '' && password!== ''){
     dispatch(loginData({
         company_name:email,
-        password:'123456',
+        password:password,
         email:'nahomjr@gmail.com'
        }))
 
@@ -141,7 +141,7 @@ const dispatch = useDispatch()
               <label>Email</label>
                 <TextField onChange={(val)=>setEmail(val.target.value)}/>
               <label>Password</label>
-                <TextField/>
+                <TextField onChange={(event)=>setPassword(event.target.value)}/>
                 <Button onClick={()=>loginHandeler()}>Submit</Button>
              </LoginInputContainer>:
              <LoginInputContainer>

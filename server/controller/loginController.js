@@ -12,8 +12,9 @@ const loginController = async(req,res)=>{
         console.log('exists')
         res.send({
             name:data.company_name,
-            account_available:true
-        })
+            account_available:true,
+            is_admin:true
+        }).json()
         }
         else{
             res.send('not found').json()

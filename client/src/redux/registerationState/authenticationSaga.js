@@ -8,9 +8,9 @@ function* login(action){
     try{
        let response = yield call(loginRequest, action.data)
        console.log(action.data)
-       console.log(response)
+       console.log(response.data)
        
-       yield put({type:LOGIN,response})
+       yield put({type:LOGIN,data:response.data})
       // console.log(data)     
     }
    catch(err){ 
