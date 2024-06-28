@@ -15,8 +15,8 @@ export const postData = async (payload) => {
 
 export const fetchUsers = () => axios.get('https://api.github.com/users') //then(response => response.json());
 
-export const login = (payload)=>{
-   const response = axios.post('http://localhost:3001/register',payload)
+export const loginRequest = (payload)=>{
+   const response = axios.post('http://localhost:3001/login',payload)
 
    return response
 }

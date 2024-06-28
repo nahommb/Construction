@@ -1,8 +1,9 @@
 import { useEffect,useState,} from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { register } from "../redux/registerationState/registerationAction";
+import { loginData } from "../redux/registerationState/authenticationAction";
 import { styled } from "styled-components";
+//import App from "../components/test";
 
 const Container = styled.div`
 height:400px;
@@ -102,21 +103,31 @@ const dispatch = useDispatch()
 
 
 
- const login = ()=>{
-    if(email.trim()!='' && password.trim()!=''){
-    dispatch(register({
+ const loginHandeler = ()=>{
+
+    // email = email.trim();
+    // password = password.trim();
+
+    if(email!== '' && password!== ''){
+    dispatch(loginData({
         company_name:email,
         password:'123456',
-        emial:'hiopokopo'
+        email:'nahomjr@gmail.com'
        }))
-       navigate('/')
+
+       navigate('/admin')
        console.log(email)
+    }
+    else{
+      console.log('email or password not correct')
     }
   
  }
 
     return <>
-        <Container></Container>
+        <Container>
+          
+        </Container>
         <Form >
             <center>{isLogin?<h1>Login</h1>:<h1>Forgot Password</h1>}</center>
             <FormHeader>
@@ -131,7 +142,7 @@ const dispatch = useDispatch()
                 <TextField onChange={(val)=>setEmail(val.target.value)}/>
               <label>Password</label>
                 <TextField/>
-                <Button onClick={()=>login()}>Submit</Button>
+                <Button onClick={()=>loginHandeler()}>Submit</Button>
              </LoginInputContainer>:
              <LoginInputContainer>
               <label>Email</label>

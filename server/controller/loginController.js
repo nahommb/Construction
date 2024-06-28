@@ -10,10 +10,13 @@ const loginController = async(req,res)=>{
         const val = await bcrypt.compare(password,data['password'])
         if(val){
         console.log('exists')
-        res.send('successfuly logged in')
+        res.send({
+            name:data.company_name,
+            account_available:true
+        })
         }
         else{
-            res.send('Account not found').json()
+            res.send('not found').json()
         }
        
     }

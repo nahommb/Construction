@@ -1,3 +1,3 @@
-const REGISTER = 'register';
-
-export default REGISTER;
+export const REGISTER = 'register';
+export const LOGIN = 'login';
+ 

@@ -7,7 +7,7 @@ import SiteFooter from "../components/siteFooter";
 import SiteNavbar from "../components/siteNavbar";
 import SiteValue from "../components/siteValue";
 import { useDispatch } from "react-redux";
-import { register } from "../redux/registerationState/registerationAction";
+import { register } from "../redux/registerationState/authenticationAction";
 
 const Sites = ()=>{
  const dispatch = useDispatch();

@@ -1,6 +1,6 @@
 import { combineReducers } from "@reduxjs/toolkit";
-import { registerData} from "./registerationState/registerationReducer";
+import { authenctionData} from "./registerationState/authenticationReducer";
 
 export default combineReducers ({
-    registerData
+   authenctionData
 })

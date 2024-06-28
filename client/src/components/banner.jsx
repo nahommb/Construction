@@ -2,7 +2,7 @@ import bannerImage from '../assets/bannerImage1.jpg'
 import  styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch} from 'react-redux';
-import { register } from '../redux/registerationState/registerationAction';
+import { register } from '../redux/registerationState/authenticationAction';
 
 const BannerImageContainer = styled.div`
    background-color:red;
