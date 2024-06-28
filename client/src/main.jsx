@@ -6,6 +6,7 @@ import Sites from './pages/sites.jsx';
 import AdminLogin from './components/adminLogin.jsx';
 import AdminPage  from './pages/adminPage.jsx';
 
+import './i18n';
 import { createBrowserRouter,RouterProvider } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './redux/store.js';

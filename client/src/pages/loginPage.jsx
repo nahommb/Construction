@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loginData } from "../redux/registerationState/authenticationAction";
 import { styled } from "styled-components";
+
 //import App from "../components/test";
 
 const Container = styled.div`
@@ -126,7 +127,7 @@ const dispatch = useDispatch()
 
     return <>
         <Container>
-          
+        
         </Container>
         <Form >
             <center>{isLogin?<h1>Login</h1>:<h1>Forgot Password</h1>}</center>

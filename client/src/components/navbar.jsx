@@ -3,6 +3,9 @@ import styled from 'styled-components'
 import {color,space} from 'styled-system'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
+
+
 
 const Navbarcontainer = styled.nav `
   ${color}
@@ -69,7 +72,7 @@ const Navbarsearch = styled.input`
 
 const Navbarelements = styled.div`
   height:2rem;
-  width:7rem;
+  width:10rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -86,20 +89,30 @@ const Button = styled.button`
  ${color}
 ${space}
 ${'' /* background-color:red; */}
-height:40px;
-width:100px;
+height:30px;
+width:50px;
 border: none;
-border-radius:10px;
+border-radius:5px 5px 5px 0px;
 marginLeft:30px;
 &:hover{
   cursor:pointer;
-  opacity:0.5;
+  background-color:#BBE9FF
+  
+}
+&:active{
+  background-color:yellow;
 }
 `;
 
 const Navbar = ()=>{
 
   const navigate = useNavigate()
+
+  const { i18n } = useTranslation();
+  
+const changeLanguage = (lng) => {
+      i18n.changeLanguage(lng);
+    };
 
 return <>
  <Navbarcontainer color='white'>
@@ -111,7 +124,9 @@ return <>
     </Navbarsearch>
     <Navbarelements>
        <div>About</div>
-       <div>language</div>
+       <Button color='red' onClick={()=>changeLanguage('en')}>engUSA</Button>
+       <Button color='green' onClick={()=>changeLanguage('am')}>አማ</Button>
+
        {/* <Button bg='white' color='blue' onClick={()=>navigate('/register')}>Register</Button> */}
        {/* <Button bg='green' color='white' onClick={()=>navigate('/register')}>Login</Button> */}
 
