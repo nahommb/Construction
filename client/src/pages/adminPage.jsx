@@ -9,8 +9,12 @@ const AdminPage = ()=>{
       // console.log(data.items[0].account_available)
 
 if(is_available){
+    
     return <>
         hello admin
+
+    <img src='http://localhost:3001/FB_IMG_15751795553924883.jpg' alt='not working'/>
+
     </>
 }
 else{

@@ -91,7 +91,7 @@ return <>
      <p style={{color:'silver',position:'relative',top:'680px'}}>We Build Your <br/><p style={{color:'red',marginLeft:'30%'}}>Life</p></p>
    </BannerImageContainer>
    <BannerElement hidescrollbar>
-
+   
      {listOfContractors.map((list,index)=>{
         return<Box key={index} onClick={()=>{
           console.log('clicked'); 

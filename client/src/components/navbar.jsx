@@ -108,6 +108,7 @@ const Navbar = ()=>{
 
   const navigate = useNavigate()
 
+  const {t} = useTranslation()
   const { i18n } = useTranslation();
   
 const changeLanguage = (lng) => {
@@ -123,7 +124,7 @@ return <>
     
     </Navbarsearch>
     <Navbarelements>
-       <div>About</div>
+       <div>{t('about')}</div>
        <Button color='red' onClick={()=>changeLanguage('en')}>engUSA</Button>
        <Button color='green' onClick={()=>changeLanguage('am')}>አማ</Button>
 

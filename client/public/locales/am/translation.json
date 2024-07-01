@@ -1,6 +1,8 @@
 {
     "welcome": "Bienvenido a React",
-    "description": "Este es un ejemplo de una aplicación React multilingüe",
-    "construction":"amharic"
+    "description": "እኛ የእርስዎን ሕይወት እንገነባለን",
+    "about":"ስለ እኛ",
+    "construction":"ግንባታ"
+    
   }
   
