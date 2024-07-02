@@ -5,6 +5,7 @@ import { fetchUsers, loginRequest, postData } from '../api';
 
 
 function* login(action){
+  console.log(action)
     try{
        let response = yield call(loginRequest, action.data)
        console.log(action.data)

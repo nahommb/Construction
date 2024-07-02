@@ -5,13 +5,13 @@ const AddPreviousWorkModule = require('../models/previousWorkSchema');
 var uploadFileName;
 
 const Storage = multer.diskStorage({
-    destination:'previousworks',
+    destination:'public/previousworks',
     filename:(req,file,cb)=>{
         uploadFileName = file.originalname
         cb(null,file.originalname)
     },
 });
-
+ 
 const upload = multer({
     storage:Storage,
     limits: { fileSize: 1024 * 1024 * 5 },
@@ -22,7 +22,7 @@ const upload = multer({
             cb(new Error('Only .png and .jpeg format allowed!'), false);
         }
     }
-}).single('works')
+}).single('image')
 
 const AddPreviousWorkController = (req,res)=>{
 
@@ -38,7 +38,7 @@ const AddPreviousWorkController = (req,res)=>{
                      contentType:'image/jpeg'
                  }
              })
-             AddNew.save().then(()=>res.send('successfully uploaded'))
+             AddNew.save().then(()=>res.json('Successfully uploaded'))
              .catch((err)=>console.log(err))
          }
         })

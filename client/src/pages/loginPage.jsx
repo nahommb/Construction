@@ -116,7 +116,7 @@ const dispatch = useDispatch()
         email:'nahomjr@gmail.com'
        }))
 
-       navigate('/admin')
+       navigate('/admin') 
        console.log(email)
     }
     else{

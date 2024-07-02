@@ -6,9 +6,9 @@ const home = require('./routes/home')
 const cors = require('cors')
 const nodemailer = require('nodemailer')
 const previousWork = require('./routes/adminrouts')
-const AddPreviousWorkModule = require('./models/previousWorkSchema')
+
 app.use(ex.json())
-app.use(ex.static('previousworks'))
+app.use(ex.static('public'))
 // const transporter = nodemailer.createTransport({
 //     service: 'gmail',
 //     auth: {
@@ -62,29 +62,8 @@ app.use('/admin',previousWork)
  
 app.get('/',)
 
-app.get('/previousworks',async (req,res)=>{
-    console.log(req.body.name)
-    AddPreviousWorkModule.findOne({name:'FB_IMG_15751795553924883.jpg'}).exec().then((data)=>{
-        if(data){
-            // console.log(data.image.contentType)
-            //res.set('Content-Type', data.image.contentType)
-            res.json(
-                {
-                image_url:`http://localhost:3001/${data.name}`,
-                })
-        //     res.json({
-        //     success: true,
-        //     message: 'Image uploaded successfully!',
-        //     imagePath: `previousworks/${req.body.name}` 
-        // });
-        }
-        else{
-            res.send('nooo')
-        }
-    
-    })
-})
+
 
 app.listen(3001,function(){
     console.log('running on port 3001')
-})
+}) 

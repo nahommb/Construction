@@ -21,12 +21,15 @@ ${props => props.hidescrollbar && `
   `}
 `;
 const WorkBox = styled.div`
-height:250px;
+${'' /* height:250px; */}
 min-width:300px;
 margin:30px;
 border-radius:10px;
-background-color:black;
-  
+background-color:#E7F0DC;
+display:block;
+align-items:center;
+color:orange;
+${'' /* padding:10px; */}
 `;
 const H1 = styled.h1`
  margin:2rem 6rem 2rem 6rem;
@@ -37,7 +40,10 @@ const PreviousWork = ()=>{
     return <>
      <H1>Our Previous Works</H1>
       <Container hidescrollbar>
-        <WorkBox></WorkBox>
+        <WorkBox>
+        <img src='http://localhost:3001/previousworks/FB_IMG_15751795553924883.jpg' alt='not working' width={'300px'} height={'300px'} style={{borderRadius:'10px'}}/>
+         Danayit
+        </WorkBox>
         <WorkBox></WorkBox>
         <WorkBox></WorkBox>
         <WorkBox></WorkBox>

@@ -20,3 +20,22 @@ export const loginRequest = (payload)=>{
 
    return response
 }
+
+export const previousWork = ()=>{
+  const response = axios.get('http://localhost:3001/admin/previousworks')
+
+  return response;
+}
+
+export const addPreviousWork = async(formData)=>{
+  try {
+    const response = await axios.post('http://localhost:3001/admin/addpreviouswork', formData);
+    console.log(response)
+
+   return response
+   
+} catch (error) { 
+    console.error('Error uploading the image', error);
+}
+}
+
