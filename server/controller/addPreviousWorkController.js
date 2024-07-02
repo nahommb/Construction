@@ -25,12 +25,13 @@ const upload = multer({
 }).single('image')
 
 const AddPreviousWorkController = (req,res)=>{
-
+       
         upload(req,res,(err)=>{
          if(err){
              console.log(err)
          }
          else{
+        
              const AddNew = AddPreviousWorkModule({
                  name:uploadFileName,
                  image:{
@@ -44,5 +45,5 @@ const AddPreviousWorkController = (req,res)=>{
         })
 
 }
-
+ 
 module.exports = AddPreviousWorkController

@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { addPreviousWorkAction } from "../redux/previousWorkState/previousWorkAction";
 import { previousWorkData } from "../redux/previousWorkState/previousWorkReducer";
+import { styled } from "styled-components";
 
 const AdminPage = ()=>{
    const data = useSelector((state)=>state.authenticationData,)
@@ -32,11 +33,26 @@ const uploadeImage = (e)=>{
   
 
 }
+ const Label = styled.label`
+  ${'' /* border:2px solid red; */}
+  background:orange;
+  border-radius:4px;
+  padding:12px;
+  color:white;
  
+  &:hover{
+    cursor:pointer;
+  }
+ `;
+ const Input = styled.input`
+ display:none;
+ `;
     return <>
        <p>enter Previous work</p>
        <form onSubmit={uploadeImage}>
-         <input type="file" onChange={(event)=>setSelectedImage(event.target.files[0])}></input>
+        <textarea/>
+        <Label for='image_input'>Uploade Image</Label>
+         <Input id="image_input" type="file" onChange={(event)=>setSelectedImage(event.target.files[0])}></Input>
          <button type="submit">submit</button>
          <p>{uploadResponse.response}</p>
        </form>

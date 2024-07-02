@@ -33,7 +33,7 @@ export const addPreviousWork = async(formData)=>{
     console.log(response)
 
    return response
-   
+
 } catch (error) { 
     console.error('Error uploading the image', error);
 }
