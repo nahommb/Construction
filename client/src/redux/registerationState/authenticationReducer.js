@@ -1,9 +1,9 @@
-import {LOGIN, REGISTER} from "../constants";
+import {LOGIN, REGISTER, SESSION} from "../constants";
 
 const initialState = {
     items: [],
     total: 0,
-
+    session:false
   };
 
 export const authenticationData = (state = initialState,action)=>{
@@ -19,8 +19,14 @@ export const authenticationData = (state = initialState,action)=>{
             console.log(action.data)
             return {
                 ...state,
-                items:[action.data]
+                items:[action.data],
+                 session:true,
             }
+        // case SESSION:
+        //      return {
+        //         ...state,
+        //         session:[action.data]
+        //      }
         default :
          return state;
     }

@@ -1,14 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import axios from "axios";
 import { addPreviousWorkAction } from "../redux/previousWorkState/previousWorkAction";
 import { previousWorkData } from "../redux/previousWorkState/previousWorkReducer";
 import { styled } from "styled-components";
+import { useNavigate } from "react-router-dom";
+import Login from "./loginPage";
+import { useLocation } from "react-router-dom";
+
 
 const AdminPage = ()=>{
    const data = useSelector((state)=>state.authenticationData,)
    const uploadResponse = useSelector((state)=>state.previousWorkData,)
-   
+   const session = useSelector((state)=>state.authenticationData.session,)
+
+   console.log(session)   
+ 
    console.log(uploadResponse.response)
    let is_available = false 
 
@@ -18,7 +25,39 @@ const AdminPage = ()=>{
  const [selectedImage,setSelectedImage] = useState();
  const dispatch = useDispatch()
 
-if(is_available){
+
+ axios.defaults.withCredentials=true
+
+
+ const [sessionAvailable,setSession] = useState(session);
+
+
+ const getData = async()=>{
+    const response = await axios.get('http://localhost:3001/admin/').then((data)=>{
+         if(!session){
+          console.log(data.data.exists)
+          setSession(data.data.exists)
+         }
+      
+    })
+    
+    console.log(response.data.exists)
+    if(response.data.exists){
+        setSession(true) 
+        //navigate('/admin')
+    }
+    else{
+        //navigate('/')
+    }
+    
+ }
+    
+useEffect(()=>{ 
+getData()
+},[])
+console.log(sessionAvailable) 
+
+if(sessionAvailable){ 
 
     
 const uploadeImage = (e)=>{
@@ -33,20 +72,6 @@ const uploadeImage = (e)=>{
   
 
 }
- const Label = styled.label`
-  ${'' /* border:2px solid red; */}
-  background:orange;
-  border-radius:4px;
-  padding:12px;
-  color:white;
- 
-  &:hover{
-    cursor:pointer;
-  }
- `;
- const Input = styled.input`
- display:none;
- `;
     return <>
        <p>enter Previous work</p>
        <form onSubmit={uploadeImage}>
@@ -61,9 +86,26 @@ const uploadeImage = (e)=>{
 }
 else{
     return <>
-        u are not admin
+       not admin 
+        {/* <Login></Login> */}
     </>
 }
 }
 
 export default AdminPage;
+
+
+ const Label = styled.label`
+  ${'' /* border:2px solid red; */}
+  background:orange;
+  border-radius:4px;
+  padding:12px;
+  color:white;
+ 
+  &:hover{
+    cursor:pointer;
+  }
+ `;
+ const Input = styled.input`
+ display:none;
+ `;

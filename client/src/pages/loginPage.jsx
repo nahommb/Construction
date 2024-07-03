@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { loginData } from "../redux/registerationState/authenticationAction";
 import { styled } from "styled-components";
+import axios from "axios";
 
 //import App from "../components/test";
 
@@ -102,12 +103,22 @@ const navigate = useNavigate()
 
 const dispatch = useDispatch()
 
+const [session ,setSession] = useState()
+
+useEffect(()=>{
+ 
+},[session])
 
 
  const loginHandeler = ()=>{
 
     // email = email.trim();
     // password = password.trim();
+    const getData = async()=>{
+      const response = await axios.get('http://localhost:3001/admin/').then((data)=>{
+         setSession(true)
+      })
+    }
 
     if(email!== '' && password!== ''){
     dispatch(loginData({
@@ -115,8 +126,8 @@ const dispatch = useDispatch()
         password:password,
         email:'nahomjr@gmail.com'
        }))
-
-       navigate('/admin') 
+       getData()
+       navigate('/admin',{state:session}) 
        console.log(email)
     }
     else{

@@ -5,7 +5,12 @@ const mongoose = require('mongoose')
 const home = require('./routes/home')
 const cors = require('cors')
 const nodemailer = require('nodemailer')
+const bdparser = require('body-parser')
 const previousWork = require('./routes/adminrouts')
+const session = require('express-session')
+const cookies = require('cookie-parser')
+
+app.use(bdparser.urlencoded({extended:true}))
 
 app.use(ex.json())
 app.use(ex.static('public'))
@@ -53,13 +58,42 @@ app.use(cors({
 }));
 
 app.use(bdy.urlencoded({extended:true}));
+
+
+app.use(cookies())
+app.use(session({
+    key:'userId',
+    secret:'nahom',
+    resave:false,
+    saveUninitialized:false,
+    cookie:{
+        expires:60*60*10000
+    }, 
+}))
+
+
+
 mongoose.connect('mongodb://127.0.0.1:27017/iconstruction')
 app.use('/',home)
 app.use('/admin',previousWork)
 
 
 
- 
+app.get('/admin',(req,res)=>{
+    if(req.session.user){ 
+        console.log(req.session)
+        res.send({
+            exists:true
+        }).json
+    
+      }
+      else{
+        res.send({
+            exists:false
+        })
+    
+      }
+})
 app.get('/',)
 
 
