@@ -103,31 +103,17 @@ const navigate = useNavigate()
 
 const dispatch = useDispatch()
 
-const [session ,setSession] = useState()
-
-useEffect(()=>{
- 
-},[session])
-
-
  const loginHandeler = ()=>{
 
-    // email = email.trim();
-    // password = password.trim();
-    const getData = async()=>{
-      const response = await axios.get('http://localhost:3001/admin/').then((data)=>{
-         setSession(true)
-      })
-    }
-
+    
     if(email!== '' && password!== ''){
     dispatch(loginData({
         company_name:email,
         password:password,
         email:'nahomjr@gmail.com'
        }))
-       getData()
-       navigate('/admin',{state:session}) 
+      
+       navigate('/admin') 
        console.log(email)
     }
     else{

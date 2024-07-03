@@ -21,8 +21,8 @@ export const loginRequest = (payload)=>{
    return response
 }
 
-export const previousWork = ()=>{
-  const response = axios.get('http://localhost:3001/admin/previousworks')
+export const previousWork = async()=>{
+  const response = await axios.get('http://localhost:3001/admin/previousworks')
 
   return response;
 }

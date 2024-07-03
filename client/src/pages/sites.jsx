@@ -8,15 +8,17 @@ import SiteNavbar from "../components/siteNavbar";
 import SiteValue from "../components/siteValue";
 import { useDispatch } from "react-redux";
 import { register } from "../redux/registerationState/authenticationAction";
+import { getPreviousWorkAction } from "../redux/previousWorkState/previousWorkAction";
+
 
 const Sites = ()=>{
- const dispatch = useDispatch();
-useEffect(()=>{
 
-    // dispatch(register({'name':'lee'}))
+const dispatch = useDispatch();
 
-},[])
-
+ useEffect(()=>{
+  dispatch(getPreviousWorkAction())
+ },[])
+   
 
     return<>
         <SiteNavbar name = 'abebe'/>

@@ -3,6 +3,8 @@ import  styled from 'styled-components';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch} from 'react-redux';
 import { register } from '../redux/registerationState/authenticationAction';
+import { getPreviousWorkAction } from "../redux/previousWorkState/previousWorkAction";
+
 
 const BannerImageContainer = styled.div`
    background-color:red;
@@ -95,7 +97,7 @@ return <>
      {listOfContractors.map((list,index)=>{
         return<Box key={index} onClick={()=>{
           console.log('clicked'); 
-          // dispatch(addToCart(data))
+        // dispatch({type:'getpreviouswork'})
         navigate(`/sites/${index}`)
 
         }}></Box>

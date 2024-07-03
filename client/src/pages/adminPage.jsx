@@ -7,14 +7,14 @@ import { styled } from "styled-components";
 import { useNavigate } from "react-router-dom";
 import Login from "./loginPage";
 import { useLocation } from "react-router-dom";
-
+import { getPreviousWorkAction } from "../redux/previousWorkState/previousWorkAction";
 
 const AdminPage = ()=>{
    const data = useSelector((state)=>state.authenticationData,)
    const uploadResponse = useSelector((state)=>state.previousWorkData,)
    const session = useSelector((state)=>state.authenticationData.session,)
 
-   console.log(session)   
+   console.log(session)    
  
    console.log(uploadResponse.response)
    let is_available = false 
@@ -33,27 +33,19 @@ const AdminPage = ()=>{
 
 
  const getData = async()=>{
-    const response = await axios.get('http://localhost:3001/admin/').then((data)=>{
+     await axios.get('http://localhost:3001/admin/').then((data)=>{
          if(!session){
           console.log(data.data.exists)
           setSession(data.data.exists)
          }
       
     })
-    
-    console.log(response.data.exists)
-    if(response.data.exists){
-        setSession(true) 
-        //navigate('/admin')
-    }
-    else{
-        //navigate('/')
-    }
-    
+        
  }
     
 useEffect(()=>{ 
 getData()
+ 
 },[])
 console.log(sessionAvailable) 
 
@@ -76,7 +68,10 @@ const uploadeImage = (e)=>{
        <p>enter Previous work</p>
        <form onSubmit={uploadeImage}>
         <textarea/>
-        <Label for='image_input'>Uploade Image</Label>
+        <Label for='image_input'>
+
+        Uploade Image
+        </Label>
          <Input id="image_input" type="file" onChange={(event)=>setSelectedImage(event.target.files[0])}></Input>
          <button type="submit">submit</button>
          <p>{uploadResponse.response}</p>
@@ -101,6 +96,9 @@ export default AdminPage;
   border-radius:4px;
   padding:12px;
   color:white;
+ ${'' /* width:150px;
+ height:20px;
+ display:flex; */}
  
   &:hover{
     cursor:pointer;

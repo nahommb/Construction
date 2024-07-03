@@ -33,7 +33,7 @@ const AddPreviousWorkController = (req,res)=>{
          else{
         
              const AddNew = AddPreviousWorkModule({
-                 name:uploadFileName,
+                 name:`previousworks/${uploadFileName}`,
                  image:{
                      data:req.file.fieldname,
                      contentType:'image/jpeg'

@@ -1,4 +1,41 @@
 import  styled  from "styled-components";
+import { useDispatch,useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getPreviousWorkAction } from "../redux/previousWorkState/previousWorkAction";
+
+ 
+
+const PreviousWork = ()=>{
+
+
+
+  const getData = useSelector((state)=>state.previousWorkData.previousWorkData)
+  if(getData[0]){
+    console.log(getData[0][0].name)
+  }
+  else{
+    console.log('state loading')
+  }
+  
+
+    return <> 
+     <H1>Our Previous Works</H1>
+      <Container hidescrollbar>
+      {getData[0]?(getData[0].map((data,index)=>{
+          console.log(data.name)
+          return <WorkBox key={index}>
+          <Image src={`http://localhost:3001/${data.name}`} alt='image'/>
+          <p style={{margin:'8px 5px'}}>Danayit</p> 
+          </WorkBox>
+        })):(<p>loading</p>)}
+       
+      </Container>
+    </>
+}
+
+export default PreviousWork;
+
+
 
 const Container = styled.div`
 ${'' /* height:400px; */}
@@ -25,37 +62,19 @@ ${'' /* height:250px; */}
 min-width:300px;
 margin:30px;
 border-radius:10px;
-background-color:#E7F0DC;
-display:block;
+${'' /* background-color:#E7F0DC; */}
+${'' /* display:block; */}
 align-items:center;
 color:orange;
-${'' /* padding:10px; */}
+
 `;
 const H1 = styled.h1`
  margin:2rem 6rem 2rem 6rem;
  color:#FF7B00;
 `;
-const PreviousWork = ()=>{
 
-    return <>
-     <H1>Our Previous Works</H1>
-      <Container hidescrollbar>
-        <WorkBox>
-        <img src='http://localhost:3001/previousworks/FB_IMG_15751795553924883.jpg' alt='not working' width={'300px'} height={'300px'} style={{borderRadius:'10px'}}/>
-         Danayit
-        </WorkBox>
-        <WorkBox></WorkBox>
-        <WorkBox></WorkBox>
-        <WorkBox></WorkBox>
-        <WorkBox></WorkBox>
-        <WorkBox></WorkBox>
-        <WorkBox></WorkBox>
-        <WorkBox></WorkBox> 
-        <WorkBox></WorkBox>
-        <WorkBox></WorkBox>
-
-      </Container>
-    </>
-}
-
-export default PreviousWork;
+const Image = styled.img`
+height:300px;
+width:250px;
+border-radius:10px;
+`;

@@ -1,9 +1,10 @@
-import { ADDPREVIOUSWORK, GETPREVIOUSWORK } from "../constants";
+import { ADDPREVIOUSWORK, GETPREVIOUSWORKDATA, GETPREVIOUSWORKRESPONSE } from "../constants";
 
 const initialState = {
     data: [],
     total: 0,
-    response:''
+    response:'',
+    previousWorkData:[]
   };
 
   export const previousWorkData = (state = initialState,action)=>{
@@ -15,13 +16,19 @@ const initialState = {
                  ...state,
                 data: [action.data],
             }
-        case GETPREVIOUSWORK:
+        case GETPREVIOUSWORKRESPONSE:
             console.log(action.data)
             return {
                 ...state,
                 response:[action.data]
             }
-        default :
+        case GETPREVIOUSWORKDATA:
+            //console.log(action.data)
+            return {
+                ...state,
+                previousWorkData:[action.data]
+            }
+        default : 
          return state;
     }
 } 

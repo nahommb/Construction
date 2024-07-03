@@ -59,8 +59,8 @@ app.use(cors({
 
 app.use(bdy.urlencoded({extended:true}));
 
-
-app.use(cookies())
+ 
+app.use(cookies())  
 app.use(session({
     key:'userId',
     secret:'nahom',
