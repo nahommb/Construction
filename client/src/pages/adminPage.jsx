@@ -8,14 +8,26 @@ import { useNavigate } from "react-router-dom";
 import Login from "./loginPage";
 import { useLocation } from "react-router-dom";
 import { getPreviousWorkAction } from "../redux/previousWorkState/previousWorkAction";
+import {sessionActionRequest } from "../redux/registerationState/authenticationAction";
 
 const AdminPage = ()=>{
    const data = useSelector((state)=>state.authenticationData,)
    const uploadResponse = useSelector((state)=>state.previousWorkData,)
    const session = useSelector((state)=>state.authenticationData.session,)
 
-   console.log(session)    
- 
+   console.log(session)  
+
+const dispatch = useDispatch()
+
+ useEffect(()=>{ 
+// getData()
+ console.log('leeeeeee')
+
+dispatch(sessionActionRequest())
+  },[]) 
+
+  
+  
    console.log(uploadResponse.response)
    let is_available = false 
 
@@ -23,33 +35,30 @@ const AdminPage = ()=>{
       // console.log(data.items[0].account_available)
 
  const [selectedImage,setSelectedImage] = useState();
- const dispatch = useDispatch()
+ 
 
 
  axios.defaults.withCredentials=true
 
 
- const [sessionAvailable,setSession] = useState(session);
+ //const [sessionAvailable,setSession] = useState(session);
 
 
- const getData = async()=>{
-     await axios.get('http://localhost:3001/admin/').then((data)=>{
-         if(!session){
-          console.log(data.data.exists)
-          setSession(data.data.exists)
-         }
+//  const getData = async()=>{
+//      await axios.get('http://localhost:3001/admin/').then((data)=>{
+//          if(!session){
+//           console.log(data.data.exists)
+//           setSession(data.data.exists)
+//          }
       
-    })
+//     })
         
- }
+//  }
     
-useEffect(()=>{ 
-getData()
- 
-},[])
-console.log(sessionAvailable) 
 
-if(sessionAvailable){ 
+//console.log(sessionAvailable) 
+
+if(session){ 
 
     
 const uploadeImage = (e)=>{

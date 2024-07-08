@@ -109,7 +109,7 @@ const dispatch = useDispatch()
     if(email!== '' && password!== ''){
     dispatch(loginData({
         company_name:email,
-        password:password,
+        password:password, 
         email:'nahomjr@gmail.com'
        }))
       

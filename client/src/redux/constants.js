@@ -5,3 +5,4 @@ export const GETPREVIOUSWORKRESPONSE = 'getpreviousworkresponse';
 export const SESSION = 'session';
 export const GETPREVIOUSWORK = 'getpreviouswork';
 export const GETPREVIOUSWORKDATA = 'getpreviousworkdata';
+export const SESSIONREQUEST = 'sessionrequest'

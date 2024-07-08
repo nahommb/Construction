@@ -1,5 +1,5 @@
 import { all } from "redux-saga/effects";
-import loginSaga from "./registerationState/authenticationSaga";
+import {loginSaga,sessionSaga} from "./registerationState/authenticationSaga";
 import {addSaga,getSaga} from "./previousWorkState/previousWorkSaga";
 
 export default function* rootSaga(){
@@ -7,5 +7,6 @@ export default function* rootSaga(){
     loginSaga(),
     addSaga(),
      getSaga(),
+     sessionSaga()
   ])
 } 

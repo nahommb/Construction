@@ -20,13 +20,13 @@ export const authenticationData = (state = initialState,action)=>{
             return {
                 ...state,
                 items:[action.data],
-                 session:true,
+                // session:true
             }
-        // case SESSION:
-        //      return {
-        //         ...state,
-        //         session:[action.data]
-        //      }
+        case SESSION:
+             return {
+                ...state,
+                session:action.data.exists
+             }
         default :
          return state;
     }

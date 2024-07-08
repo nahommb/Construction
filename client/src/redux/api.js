@@ -40,8 +40,8 @@ export const addPreviousWork = async(formData)=>{
 }
 
 export const session = async()=>{
-  const response = await axios.get('http://localhost:3001/admin/')
-
+  const response = await axios.get('http://localhost:3001/admin')
+  console.log(response)
   return response;
 }
 
