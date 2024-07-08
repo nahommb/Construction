@@ -15,9 +15,9 @@ const AdminPage = ()=>{
    const uploadResponse = useSelector((state)=>state.previousWorkData,)
    const session = useSelector((state)=>state.authenticationData.session,)
 
-   console.log(session)  
+   console.log(session)    
 
-const dispatch = useDispatch()
+const dispatch = useDispatch() 
 
  useEffect(()=>{ 
 // getData()
@@ -35,28 +35,8 @@ dispatch(sessionActionRequest())
       // console.log(data.items[0].account_available)
 
  const [selectedImage,setSelectedImage] = useState();
- 
+ const [previewImage, setPreviewImage] = useState();
 
-
- axios.defaults.withCredentials=true
-
-
- //const [sessionAvailable,setSession] = useState(session);
-
-
-//  const getData = async()=>{
-//      await axios.get('http://localhost:3001/admin/').then((data)=>{
-//          if(!session){
-//           console.log(data.data.exists)
-//           setSession(data.data.exists)
-//          }
-      
-//     })
-        
-//  }
-    
-
-//console.log(sessionAvailable) 
 
 if(session){ 
 
@@ -77,11 +57,18 @@ const uploadeImage = (e)=>{
        <p>enter Previous work</p>
        <form onSubmit={uploadeImage}>
         <textarea/>
-        <Label for='image_input'>
-
+        <img src={previewImage} alt="image" width={'180px'} height={'200px'}></img>
+        <Label for='image_input'>        
         Uploade Image
         </Label>
-         <Input id="image_input" type="file" onChange={(event)=>setSelectedImage(event.target.files[0])}></Input>
+         <Input id="image_input" type="file" onChange={(event)=>{
+          const file = event.target.files[0];
+         setSelectedImage(event.target.files[0])
+         if(file){
+          setPreviewImage(URL.createObjectURL(file));
+         }
+         
+         }}></Input>
          <button type="submit">submit</button>
          <p>{uploadResponse.response}</p>
        </form>

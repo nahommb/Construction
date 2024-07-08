@@ -103,8 +103,8 @@ const navigate = useNavigate()
 
 const dispatch = useDispatch()
 
- const loginHandeler = ()=>{
-
+ const loginHandeler = (e)=>{
+  e.preventDefault();
     
     if(email!== '' && password!== ''){
     dispatch(loginData({
@@ -113,7 +113,7 @@ const dispatch = useDispatch()
         email:'nahomjr@gmail.com'
        }))
       
-       navigate('/admin') 
+       navigate('/admin')  
        console.log(email)
     }
     else{
@@ -126,7 +126,7 @@ const dispatch = useDispatch()
         <Container>
         
         </Container>
-        <Form >
+        <Form onSubmit={loginHandeler}>
             <center>{isLogin?<h1>Login</h1>:<h1>Forgot Password</h1>}</center>
             <FormHeader>
                 <P onClick={()=>setIsLogin(true)}>Login</P>
@@ -140,7 +140,7 @@ const dispatch = useDispatch()
                 <TextField onChange={(val)=>setEmail(val.target.value)}/>
               <label>Password</label>
                 <TextField onChange={(event)=>setPassword(event.target.value)}/>
-                <Button onClick={()=>loginHandeler()}>Submit</Button>
+                <Button type="submit" >Submit</Button>
              </LoginInputContainer>:
              <LoginInputContainer>
               <label>Email</label>

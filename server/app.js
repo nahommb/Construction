@@ -63,7 +63,7 @@ app.use(bdy.urlencoded({extended:true}));
 app.use(cookies())  
 app.use(session({
     key:'userId', 
-    secret:'nahom',
+    secret:'lee',
     resave:false,
     saveUninitialized:false,
     cookie:{
@@ -79,9 +79,10 @@ app.use('/admin',previousWork)
 
 
 
-app.get('/admin',(req,res)=>{
+app.get('/session',(req,res)=>{
+   // console.log(req.session)
     if(req.session.user){ 
-        console.log(req.session)
+        console.log(req.session.user)
         res.send({
             exists:true
         }).json
@@ -90,7 +91,7 @@ app.get('/admin',(req,res)=>{
       else{
         res.send({
             exists:false
-        })
+        }) 
     
       }
 })

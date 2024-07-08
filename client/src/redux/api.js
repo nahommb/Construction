@@ -16,6 +16,7 @@ export const postData = async (payload) => {
 export const fetchUsers = () => axios.get('https://api.github.com/users') //then(response => response.json());
 
 export const loginRequest = (payload)=>{
+  axios.defaults.withCredentials = true;
    const response = axios.post('http://localhost:3001/login',payload)
 
    return response
@@ -40,7 +41,8 @@ export const addPreviousWork = async(formData)=>{
 }
 
 export const session = async()=>{
-  const response = await axios.get('http://localhost:3001/admin')
+  axios.defaults.withCredentials = true;
+  const response = await axios.get('http://localhost:3001/session')
   console.log(response)
   return response;
 }
