@@ -12,7 +12,7 @@ function* Add(action){
        yield put({type:GETPREVIOUSWORKRESPONSE,data:response.data})
        // console.log(data)     
      }
-    catch(err){ 
+    catch(err){  
       console.log(err)
     } 
 }

@@ -87,7 +87,7 @@ app.get('/session',(req,res)=>{
             exists:true
         }).json
     
-      }
+      }  
       else{
         res.send({
             exists:false
