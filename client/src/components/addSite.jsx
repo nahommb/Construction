@@ -9,7 +9,7 @@ export const AddSite = ()=>{
     const dispatch = useDispatch();
 
     const uploadResponse = useSelector((state)=>state.previousWorkData,)
-    console.log(uploadResponse)
+    // console.log(uploadResponse)
 
     const [selectedImage,setSelectedImage] = useState();
     const [previewImage, setPreviewImage] = useState();
@@ -65,13 +65,19 @@ export const AddSite = ()=>{
 
      <SiteLocation>
     <label>Site Location</label> 
-     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="white" className="size-4">
+     {/* <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="white" className="size-4">
     <path fillRule="evenodd" d="m7.539 14.841.003.003.002.002a.755.755 0 0 0 .912 0l.002-.002.003-.003.012-.009a5.57 5.57 0 0 0 .19-.153 15.588 15.588 0 0 0 2.046-2.082c1.101-1.362 2.291-3.342 2.291-5.597A5 5 0 0 0 3 7c0 2.255 1.19 4.235 2.292 5.597a15.591 15.591 0 0 0 2.046 2.082 8.916 8.916 0 0 0 .189.153l.012.01ZM8 8.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z" clipRule="evenodd" />
-    </svg>
+    </svg> */}
      <LoctaionInput onChange={(event)=>setLocation(event.target.value)}></LoctaionInput>
-     </SiteLocation>
-     </div>
+    
+     </SiteLocation> 
 
+
+     </div>
+     <SiteNameContainer>
+    <label>Site Name</label>
+     <NameInput onChange={(event)=>setName(event.target.value)}></NameInput>
+     </SiteNameContainer>
      </UploadContainer> 
      
      <Button type="submit">submit</Button>  
@@ -87,7 +93,7 @@ color:white;
 `;
 const SiteContainer = styled.div`
  height:350px;
- width:100%;
+ 
  padding-top:20px;
  background:orange;
 
@@ -115,10 +121,14 @@ display:none;
 const UploadContainer = styled.div`
 ${'' /* height:200px; */}
 
-display:flex;
 justify-content:space-between;
 align-items:center;
+
 padding:20px;
+${'' /* background:red; */}
+display:grid;
+grid-template-columns: repeat(auto-fill, minmax(100px,300px));
+grid-gap:5px;
 `;
 
 const ImageUpload = styled.div`
@@ -126,14 +136,16 @@ const ImageUpload = styled.div`
  display:flex;
  background:white;
 `;
-
+const SiteNameContainer = styled.div`
+color:white;
+`;
 const Description = styled.div`
  height:100px;
- width:500px;
- background:white;
+ width:300px;
+ ${'' /* background:blue; */}
  border:none;
+ color:white;
  border-radius:4px;
- margin-left:40px;
  padding:10px;
  display:flex;
  justify-content:space-between;
@@ -154,17 +166,24 @@ height:30px;
 border:none;
 border-radius:4px;  
 padding-left:10px;
+margin-left:3px;
 &:focus{
     outline:none;
     border:2px solid green;
   }
 `;
+const NameInput = styled(LoctaionInput)`
+
+`;
+
 const SiteLocation = styled.div`
   height:40px;
   margin-left:10px;
+  width:300px;
   display:flex;
   align-items:center;
-
+  color:white;
+  ${'' /* background:green; */}
 `;
 const Button = styled.button`
  height:50px;
