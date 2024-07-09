@@ -4,6 +4,8 @@ const mongoose = require('mongoose')
 
 const AddPreviousWorkSchema = mongoose.Schema({
     name:String,
+    description:String,
+    location:String,
     image:{
         data:Buffer,
         contentType:String

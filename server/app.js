@@ -9,6 +9,7 @@ const bdparser = require('body-parser')
 const previousWork = require('./routes/adminrouts')
 const session = require('express-session')
 const cookies = require('cookie-parser')
+const sessionController = require('./controller/sessionController')
 
 app.use(bdparser.urlencoded({extended:true}))
 
@@ -79,22 +80,7 @@ app.use('/admin',previousWork)
 
 
 
-app.get('/session',(req,res)=>{
-   // console.log(req.session)
-    if(req.session.user){ 
-        console.log(req.session.user)
-        res.send({
-            exists:true
-        }).json
-    
-      }  
-      else{
-        res.send({
-            exists:false
-        }) 
-    
-      }
-})
+app.get('/session',sessionController)
 app.get('/',)
 
 

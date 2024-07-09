@@ -26,6 +26,7 @@ border-radius:4px;
 padding:10px;
 margin-right:20px;
 &:hover{
-    curser:pointer;
+    cursor:pointer;
+   
 }
 `;

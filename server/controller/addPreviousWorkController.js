@@ -27,6 +27,8 @@ const upload = multer({
 const AddPreviousWorkController = (req,res)=>{
        
         upload(req,res,(err)=>{
+            
+        console.log(req.body.description)
          if(err){
              console.log(err)
          }
@@ -34,6 +36,8 @@ const AddPreviousWorkController = (req,res)=>{
         
              const AddNew = AddPreviousWorkModule({
                  name:`previousworks/${uploadFileName}`,
+                 description:req.body.description,
+                 location:req.body.location,
                  image:{
                      data:req.file.fieldname,
                      contentType:'image/jpeg'

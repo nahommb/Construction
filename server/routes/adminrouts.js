@@ -1,4 +1,5 @@
 const AddPreviousWorkController = require('../controller/addPreviousWorkController');
+const siteDescriptionController = require('../controller/siteDescriptionController');
 const AddPreviousWorkModule = require('../models/previousWorkSchema')
 const router = require('express').Router();
 
@@ -25,4 +26,5 @@ router
     
     })
 })
+.post('/description',siteDescriptionController)
  module.exports = router
