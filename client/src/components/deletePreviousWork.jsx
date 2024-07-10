@@ -1,9 +1,24 @@
 import { styled } from "styled-components"
-import { useEffect } from "react";
+import { useEffect,useState} from "react";
 import { getPreviousWorkAction } from "../redux/previousWorkState/previousWorkAction";
 import { useSelector,useDispatch } from "react-redux"
 
 export const DeletePereviousWork = ()=>{
+
+
+    const [showWarning, setShowWarning] = useState(false);
+    const [id , setId] = useState()
+
+    const handleClick = (id) => {
+        
+        setId(id);
+        setShowWarning(true);
+      // Automatically hide the warning after 60 seconds
+      setTimeout(() => setShowWarning(false), 60000);
+        
+  
+    }
+
     const dispatch = useDispatch();
 
     useEffect(()=>{
@@ -13,13 +28,14 @@ export const DeletePereviousWork = ()=>{
     // console.log(getData)
     return <Container>
        {getData[0]?(getData[0].map((data,index)=>{
-          console.log(data.name)
+          {/* console.log(data.name) */}
           return <ContentContainer key={index}>
           <Image src={`http://localhost:3001/${data.name}`} alt='image'/>
           <p style={{margin:'8px 5px'}}>Name of building</p> 
           <p>Description of site or building</p>
           <p>location of building</p>
-          <Button>Delete</Button>
+          <Button  onClick={()=>handleClick(index)}>Delete</Button>
+          {showWarning && index === id &&<Warning>Warning: Are you Sure want to delete !</Warning>}
           </ContentContainer>
         })):(<p>loading</p>)}
 
@@ -34,13 +50,15 @@ grid-template-columns: repeat(auto-fill, minmax(100px,250px));
 grid-gap:5px;
 align-items:center;
 padding:20px 0px 0px 9%;
+margin-bottom:50px;
 `;
 
 const ContentContainer = styled.div`
-  height:400px;
+  ${'' /* height:400px; */}
   ${'' /* background:blue; */}
   display:block;
-  align-items:center
+  align-items:center;
+  margin-bottom:5px;
   
 `;
 const Button = styled.button`
@@ -63,4 +81,12 @@ height:250px;
 width:250px;
 border-radius:5px;
 
+`;
+const Warning = styled.div`
+  margin-top: 10px;
+  padding: 10px;
+  background-color: #ffcc00;
+  color: #663300;
+  border: 1px solid #663300;
+  border-radius: 5px;
 `;
