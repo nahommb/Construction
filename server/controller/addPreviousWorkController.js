@@ -24,7 +24,7 @@ const upload = multer({
     }
 }).single('image')
 
-const AddPreviousWorkController = (req,res)=>{
+const AddPreviousWorkController = async(req,res)=>{
        
         upload(req,res,(err)=>{
             
@@ -43,7 +43,7 @@ const AddPreviousWorkController = (req,res)=>{
                      contentType:'image/jpeg'
                  }
              })
-             AddNew.save().then(()=>res.json('Successfully uploaded'))
+           AddNew.save().then(()=>res.json('Successfully uploaded'))
              .catch((err)=>console.log(err))
          }
         })

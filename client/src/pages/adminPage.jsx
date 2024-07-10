@@ -10,6 +10,8 @@ import { useDispatch, useSelector } from "react-redux";
 import {sessionActionRequest } from "../redux/registerationState/authenticationAction";
 import { AddSite } from "../components/addSite";
 import { AddminNavBar } from "../components/adminNavBar";
+import PreviousWork from "../components/previousWorks";
+import { DeletePereviousWork } from "../components/deletePreviousWork";
 
 const AdminPage = ()=>{
    const data = useSelector((state)=>state.authenticationData,)
@@ -39,6 +41,7 @@ if(session){
     return <>
       <AddminNavBar></AddminNavBar>
       <AddSite></AddSite>
+      <DeletePereviousWork></DeletePereviousWork>
       
     </>
 }

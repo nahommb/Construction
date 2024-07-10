@@ -92,12 +92,12 @@ padding-left:40px;
 color:white;
 `;
 const SiteContainer = styled.div`
- height:350px;
  
+ margin-top:10px;
  padding-top:20px;
  background:orange;
-
-
+ padding-bottom:15px;
+ border-radius:30px;
 `;
 const Label = styled.label`
 ${'' /* border:2px solid red; */}
@@ -135,6 +135,7 @@ const ImageUpload = styled.div`
  width:300px;
  display:flex;
  background:white;
+ border-radius:20px;
 `;
 const SiteNameContainer = styled.div`
 color:white;
