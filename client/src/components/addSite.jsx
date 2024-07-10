@@ -23,7 +23,7 @@ export const AddSite = ()=>{
         formData.append('image',selectedImage)
         formData.append('description',description)
         formData.append('location',location)
-        formData.append('name',name)
+        formData.append('building_name',name)
        dispatch(addPreviousWorkAction(formData))
 
     }

@@ -10,7 +10,7 @@ router
 .post('/addpreviouswork',AddPreviousWorkController)
 .get('/previousworks',async (req,res)=>{
    
-   await AddPreviousWorkModule.find({},{name:1, _id:0}).exec().then((data)=>{
+   await AddPreviousWorkModule.find({},{image_url:1,building_name:1,description:1,location:1, _id:1}).exec().then((data)=>{
         if(data){
             res.send(data)
             console.log(data)

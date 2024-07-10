@@ -30,10 +30,10 @@ export const DeletePereviousWork = ()=>{
        {getData[0]?(getData[0].map((data,index)=>{
           {/* console.log(data.name) */}
           return <ContentContainer key={index}>
-          <Image src={`http://localhost:3001/${data.name}`} alt='image'/>
-          <p style={{margin:'8px 5px'}}>Name of building</p> 
-          <p>Description of site or building</p>
-          <p>location of building</p>
+          <Image src={`http://localhost:3001/${data.image_url}`} alt='image'/>
+          <p style={{margin:'8px 5px'}}>{data.building_name}</p> 
+          <p>{data.description}</p>
+          <p>{data.location}</p>
           <Button  onClick={()=>handleClick(index)}>Delete</Button>
           {showWarning && index === id &&<Warning>Warning: Are you Sure want to delete !</Warning>}
           </ContentContainer>
