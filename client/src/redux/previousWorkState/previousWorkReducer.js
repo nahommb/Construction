@@ -1,9 +1,10 @@
-import { ADDPREVIOUSWORK, GETPREVIOUSWORKDATA, GETPREVIOUSWORKRESPONSE } from "../constants";
+import { ADDPREVIOUSWORK, DELETEPREVIOUSWORK, DELETEPREVIOUSWORKRESPONSE, GETPREVIOUSWORKDATA, GETPREVIOUSWORKRESPONSE } from "../constants";
 
 const initialState = {
     data: [],
     total: 0,
     response:'',
+    delete_response:'',
     previousWorkData:[]
   };
 
@@ -28,6 +29,13 @@ const initialState = {
                 ...state,
                 previousWorkData:[action.data]
             }
+        case DELETEPREVIOUSWORKRESPONSE:
+              console.log(action.data.message)
+                return{
+                    ...state,
+                    delete_response:action.data.message
+                }
+            
         default : 
          return state;
     }

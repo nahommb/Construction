@@ -6,4 +6,6 @@ export const SESSION = 'session';
 export const GETPREVIOUSWORK = 'getpreviouswork';
 export const GETPREVIOUSWORKDATA = 'getpreviousworkdata';
 export const SESSIONREQUEST = 'sessionrequest';
-export const LOGINREQUEST = 'loginrequest'
+export const LOGINREQUEST = 'loginrequest';
+export const DELETEPREVIOUSWORK = 'deletepreviouswork';
+export const DELETEPREVIOUSWORKRESPONSE = 'deletepreviousworkresponse'

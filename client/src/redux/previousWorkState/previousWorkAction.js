@@ -1,4 +1,4 @@
-import { ADDPREVIOUSWORK, GETPREVIOUSWORK, GETPREVIOUSWORKRESPONSE } from "../constants";
+import { ADDPREVIOUSWORK, DELETEPREVIOUSWORK, GETPREVIOUSWORK, GETPREVIOUSWORKRESPONSE } from "../constants";
 
 export const addPreviousWorkAction = (data)=>{
     console.log(data)
@@ -22,3 +22,10 @@ export const getPreviousWorkAction = ()=>{
         
     }
 } 
+
+export const deletePreviousWork = (data)=>{
+    return {
+        type:DELETEPREVIOUSWORK,
+        data
+    }
+}

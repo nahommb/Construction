@@ -1,6 +1,6 @@
 import {takeEvery, put, call, takeLatest} from 'redux-saga/effects'
-import { addPreviousWork , previousWork} from '../api'
-import { ADDPREVIOUSWORK, GETPREVIOUSWORK,GETPREVIOUSWORKDATA, GETPREVIOUSWORKRESPONSE } from '../constants'
+import { addPreviousWork , deleteRequest, previousWork} from '../api'
+import { ADDPREVIOUSWORK, DELETEPREVIOUSWORK, DELETEPREVIOUSWORKRESPONSE, GETPREVIOUSWORK,GETPREVIOUSWORKDATA, GETPREVIOUSWORKRESPONSE } from '../constants'
 
 function* Add(action){
     console.log(action)
@@ -27,6 +27,23 @@ function* Get(){
   catch(err){
    console.error(err)
   }
+}
+
+function* Delete(action){
+  console.log(action)
+  try{
+    const response = yield call(deleteRequest,action.data)
+    console.log(response)
+
+     yield put({type:DELETEPREVIOUSWORKRESPONSE,data:response.data})
+   }
+  catch(err){
+   console.error(err)
+  }
+}
+
+export function* deleteSaga(){
+  yield takeLatest(DELETEPREVIOUSWORK,Delete)
 }
 export function* getSaga(){
    yield takeLatest(GETPREVIOUSWORK,Get)

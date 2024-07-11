@@ -47,3 +47,8 @@ export const session = async()=>{
   return response;
 }
 
+export const deleteRequest = async(id)=>{
+  const response = await axios.delete(`http://localhost:3001/admin/deletepreviouswork/${id}`)
+  console.log(response)
+  return response; 
+}

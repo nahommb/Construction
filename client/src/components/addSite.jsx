@@ -1,5 +1,5 @@
 import {styled } from "styled-components"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { previousWorkData } from "../redux/previousWorkState/previousWorkReducer"; 
 import { addPreviousWorkAction } from "../redux/previousWorkState/previousWorkAction";
@@ -16,6 +16,7 @@ export const AddSite = ()=>{
     const [description,setDescription] = useState();
     const [location , setLocation] = useState();
     const [name , setName] = useState();
+   
     const uploadeImage = (e)=>{
 
         e.preventDefault();
@@ -26,14 +27,18 @@ export const AddSite = ()=>{
         formData.append('building_name',name)
        dispatch(addPreviousWorkAction(formData))
 
+       setTimeout(() =>  window.location.reload(), 5000);
+
+      
     }
+
     return <>
      <SiteContainer>
      <P>Add Previous work</P>
      <form onSubmit={uploadeImage}>
      <UploadContainer>
         <ImageUpload>
-        <img src={previewImage} alt="image" width={'180px'} height={'200px'}></img>
+        <img src={previewImage} width={'180px'} height={'200px'}></img>
         
         <Label for='image_input'> 
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" className="size-4">
