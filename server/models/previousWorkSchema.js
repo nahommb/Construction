@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 
 
 const AddPreviousWorkSchema = mongoose.Schema({
+    image_name:String,
     image_url:String,
     description:String,
     location:String,

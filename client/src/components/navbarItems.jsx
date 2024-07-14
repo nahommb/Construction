@@ -8,13 +8,17 @@ export const NavbarItems = ()=>{
 }
 
 const Container = styled.div`
-height:50px;
-width:100px;
-${'' /* background:red; */}
+height:70px;
+width:150px;
+background:orange;
 display:flex;
 align-items:end;
-justify-content:space-between;
+border-radius:0px 0px 8px 8px;
+justify-content:space-around;
 margin-top:30px;
+padding-bottom:10px;
+
+
 `;
 
 const Items = styled.p`

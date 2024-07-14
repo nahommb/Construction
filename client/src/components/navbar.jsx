@@ -13,7 +13,7 @@ const Navbarcontainer = styled.nav `
   
   background-color:orange;
   border-bottom-left-radius:130px;
-  height:4.5rem;
+  height:2.0rem;
   display: flex;
   justify-content: space-between;
   align-items: center;

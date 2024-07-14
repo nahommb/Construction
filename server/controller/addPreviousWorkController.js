@@ -35,6 +35,7 @@ const AddPreviousWorkController = async(req,res)=>{
          else{
         
              const AddNew = AddPreviousWorkModule({
+                 image_name:uploadFileName,
                  image_url:`previousworks/${uploadFileName}`,
                  description:req.body.description,
                  location:req.body.location,
