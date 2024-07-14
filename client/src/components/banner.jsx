@@ -4,10 +4,71 @@ import { useNavigate } from 'react-router-dom';
 import { useDispatch} from 'react-redux';
 import { register } from '../redux/registerationState/authenticationAction';
 import { getPreviousWorkAction } from "../redux/previousWorkState/previousWorkAction";
+import { useSelector } from 'react-redux';
 
+
+
+const Banner = ()=>{
+
+
+
+  const getData = useSelector((state)=>state.previousWorkData.previousWorkData)
+  console.log(getData)
+
+const navigate = useNavigate();
+
+const dispatch = useDispatch()
+
+const listOfContractors = [
+    1,2,3,4,5,6,7
+];
+
+const data ={
+  name:'abebe',
+  age:10
+}
+
+
+
+return <>
+   <BannerImageContainer>
+     <p style={{color:'silver',position:'relative',top:'680px'}}>We Build Your <br/><p style={{color:'red',marginLeft:'30%'}}>Life</p></p>
+   </BannerImageContainer>
+   <BannerElement hidescrollbar>
+   
+     {getData[0]?(getData[0].map((data,index)=>{
+        return<Box key={index} onClick={()=>{
+          console.log('clicked'); 
+        // dispatch({type:'getpreviouswork'})
+        navigate(`/sites/${index}`)
+
+        }}>
+          <Image src={`http://localhost:3001/${data.image_url}`}></Image>
+         <InfoBox>
+          <h3>{data.building_name}</h3>
+          <p>2345 ⭐</p>
+         </InfoBox> 
+        </Box>
+     })):(<p></p>)}
+       {/* <Box> */}
+        {/* <div style={{height:'200px',backgroundColor:'red'}}>
+
+        </div>
+       </Box>
+       <Box></Box>
+       <Box></Box> */}
+
+   </BannerElement>
+    <div style={{height:'500px',backgroundImage:'',position:'static',top:'0px'}}>
+
+</div>
+</>
+}
+
+export default Banner;
 
 const BannerImageContainer = styled.div`
-   background-color:red;
+   ${'' /* background-color:red; */}
    height:40rem;
    ${'' /* width:100%; */}
    
@@ -33,7 +94,7 @@ const BannerElement = styled.div`
 height:30rem;
 background-color:white;
 border-radius:30px;
-box-shadow:2px 3px 4px black;
+box-shadow:2px 3px 4px orange;
 margin-left:30%;
 position:relative;
 top:200px;
@@ -60,61 +121,23 @@ ${props => props.hidescrollbar && `
 const Box = styled.div`
 background-color:;
 height:400px;
-box-shadow:2px 2px 5px 1px green;
+box-shadow:1px 1px 3px 0.1px orange;
 border-radius:20px;
 margin:10px;
 @media screen and (max-width:600px){
     height:200px;
 }
 &:hover{
-  background-color:red;
-  opacity:0.3;
+  background-color:orange;
+  ${'' /* opacity:0.3; */}
   cursor:pointer;
+  color:white;
 }
 `;
-
-const Banner = ()=>{
-
-const navigate = useNavigate();
-
-const dispatch = useDispatch()
-
-const listOfContractors = [
-    1,2,3,4,5,6,7
-];
-
-const data ={
-  name:'abebe',
-  age:10
-}
-
-return <>
-   <BannerImageContainer>
-     <p style={{color:'silver',position:'relative',top:'680px'}}>We Build Your <br/><p style={{color:'red',marginLeft:'30%'}}>Life</p></p>
-   </BannerImageContainer>
-   <BannerElement hidescrollbar>
-   
-     {listOfContractors.map((list,index)=>{
-        return<Box key={index} onClick={()=>{
-          console.log('clicked'); 
-        // dispatch({type:'getpreviouswork'})
-        navigate(`/sites/${index}`)
-
-        }}></Box>
-     })}
-       <Box>
-        <div style={{height:'200px',backgroundColor:'red'}}>
-
-        </div>
-       </Box>
-       <Box></Box>
-       <Box></Box>
-
-   </BannerElement>
-    <div style={{height:'500px',backgroundColor:'black',position:'static',top:'0px'}}>
-
-</div>
-</>
-}
-
-export default Banner;
+const Image = styled.img`
+width:100%;
+height:80%;
+`;
+const InfoBox = styled.div`
+ padding:5%;
+`;

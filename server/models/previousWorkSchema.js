@@ -7,6 +7,7 @@ const AddPreviousWorkSchema = mongoose.Schema({
     description:String,
     location:String,
     building_name:String,
+    rate:Number,
     image:{
         data:Buffer,
         contentType:String

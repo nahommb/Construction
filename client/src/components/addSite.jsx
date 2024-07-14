@@ -7,16 +7,24 @@ import { addPreviousWorkAction } from "../redux/previousWorkState/previousWorkAc
 export const AddSite = ()=>{
  
     const dispatch = useDispatch();
-
+    
     const uploadResponse = useSelector((state)=>state.previousWorkData,)
-    // console.log(uploadResponse)
+     console.log(uploadResponse.response)
 
     const [selectedImage,setSelectedImage] = useState();
     const [previewImage, setPreviewImage] = useState();
     const [description,setDescription] = useState();
     const [location , setLocation] = useState();
     const [name , setName] = useState();
+
+ 
+    // if(uploadResponse.response === 'Successfully uploaded'){
    
+    //   }
+  
+ 
+ //uploadResponse.response === 'Successfully uploaded'?alert('hello'):null;
+
     const uploadeImage = (e)=>{
 
         e.preventDefault();
@@ -26,8 +34,8 @@ export const AddSite = ()=>{
         formData.append('location',location)
         formData.append('building_name',name)
        dispatch(addPreviousWorkAction(formData))
-
-       setTimeout(() =>  window.location.reload(), 5000);
+       
+       setTimeout(() =>  window.location.reload(), 3000);
 
       
     }
@@ -86,7 +94,7 @@ export const AddSite = ()=>{
      </UploadContainer> 
      
      <Button type="submit">submit</Button>  
-     <p>{uploadResponse.response}</p>
+     <p style={{color:'white',marginLeft:'20px'}}>{uploadResponse.response}</p>
    </form>
       
      </SiteContainer>
@@ -102,7 +110,8 @@ const SiteContainer = styled.div`
  padding-top:20px;
  background:orange;
  padding-bottom:15px;
- border-radius:30px;
+ margin:0.5%;
+ ${'' /* border-radius:30px; */}
 `;
 const Label = styled.label`
 ${'' /* border:2px solid red; */}
@@ -140,7 +149,7 @@ const ImageUpload = styled.div`
  width:300px;
  display:flex;
  background:white;
- border-radius:20px;
+ border-radius:8px;
 `;
 const SiteNameContainer = styled.div`
 color:white;

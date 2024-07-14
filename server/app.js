@@ -85,6 +85,48 @@ app.get('/',)
 
 
 
+
+
+
+
+
+
+
+app.post('/payment-success', async (req, res) => {
+    const { tx_ref } = req.body;
+  
+    try {
+      const response = await axios.get(`https://api.chapa.co/v1/transaction/verify/${tx_ref}`, {
+        headers: {
+          Authorization: `Bearer CHAPUBK_TEST-SViRXlP2rAnkzObtyzB5UIN5Ymj9QqhX`, // Replace with your Chapa API key
+        },
+      });
+  
+      if (response.data.status === 'success') {
+        // Handle successful payment
+        res.json({ message: 'Payment successful', data: response.data });
+      } else {
+        // Handle failed payment
+        res.status(400).json({ message: 'Payment verification failed' });
+      }
+    } catch (error) {
+      console.error('Error verifying payment:', error);
+      res.status(500).json({ message: 'Internal server error' });
+    }
+  });
+
+
+
+
+
+
+
+
+
+
+
+
+
 app.listen(3001,function(){
     console.log('running on port 3001')
 }) 

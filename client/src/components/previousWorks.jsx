@@ -1,9 +1,5 @@
 import  styled  from "styled-components";
 import { useDispatch,useSelector } from "react-redux";
-import { useEffect } from "react";
-import { getPreviousWorkAction } from "../redux/previousWorkState/previousWorkAction";
-
- 
 
 const PreviousWork = ()=>{
 
@@ -22,7 +18,7 @@ const PreviousWork = ()=>{
      <H1>Our Previous Works</H1>
       <Container hidescrollbar>
       {getData[0]?(getData[0].map((data,index)=>{
-          console.log(data.name)
+         // console.log(data.name)
           return <WorkBox key={index}>
           <Image src={`http://localhost:3001/${data.image_url}`} alt='image'/>
           <p style={{margin:'8px 5px'}}>{data.building_name}</p> 

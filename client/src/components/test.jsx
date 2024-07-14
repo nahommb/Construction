@@ -1,58 +1,68 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
+import axios from 'axios';
 
-const DropdownContainer = styled.div`
-  position: relative;
-  display: inline-block;
-`;
+const ChapaPayment = () => {
+  const [email, setEmail] = useState('');
+  const [amount, setAmount] = useState('');
+  const [paymentStatus, setPaymentStatus] = useState(null);
 
-const DropdownButton = styled.button`
-  background-color: #4CAF50;
-  color: white;
-  padding: 10px;
-  font-size: 16px;
-  border: none;
-  cursor: pointer;
-  border-radius: 5px;
-`;
+  const handlePayment = async () => {
+    console.log('hello')
+    const apiUrl = 'https://api.chapa.co/v1/transaction/initialize';
+    const apiKey = 'CHAPUBK_TEST-SViRXlP2rAnkzObtyzB5UIN5Ymj9QqhX'; // Replace with your Chapa API key
 
-const DropdownMenu = styled.div`
-  display: ${(props) => (props.show ? 'block' : 'none')};
-  position: absolute;
-  background-color: white;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
-  border-radius: 5px;
-  margin-top: 10px;
-`;
+    const paymentData = {
+      amount,
+      currency: 'ETB',
+      email,
+      callback_url: 'http://localhost:3001/payment-success', // Replace with your callback URL
+      return_url: 'http://localhost:3001/payment-complete', // Replace with your return URL
+    };
 
-const DropdownItem = styled.a`
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  &:hover {
-    background-color: #ddd;
-  }
-`;
-
-const App = () => {
-  const [showDropdown, setShowDropdown] = useState(false);
-
-  const toggleDropdown = () => {
-    setShowDropdown(!showDropdown);
+    try {
+      const response = await axios.post(apiUrl, paymentData, {
+        headers: {
+          Authorization: `Bearer ${apiKey}`,
+          'Content-Type': 'application/json',
+        },
+      });
+      console.log(response.data)
+      if (response.data.status === 'success') {
+        window.location.href = response.data.data.checkout_url; // Redirect to Chapa checkout
+      } else {
+        setPaymentStatus('Payment initialization failed. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error initializing payment:', error);
+      setPaymentStatus('Error initializing payment. Please try again.');
+    }
   };
 
   return (
-    <DropdownContainer>
-      <DropdownButton onClick={toggleDropdown}>Dropdown</DropdownButton>
-      <DropdownMenu show={showDropdown}>
-        <DropdownItem href="#option1">Option 1</DropdownItem>
-        <DropdownItem href="#option2">Option 2</DropdownItem>
-        <DropdownItem href="#option3">Option 3</DropdownItem>
-      </DropdownMenu>
-    </DropdownContainer>
+    <div>
+      <h2>Chapa Payment</h2>
+      <div>
+        <label>Email:</label>
+        <input
+          type="email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
+        />
+      </div>
+      <div>
+        <label>Amount (ETB):</label>
+        <input
+          type="number"
+          value={amount}
+          onChange={(e) => setAmount(e.target.value)}
+          required
+        />
+      </div>
+      <button onClick={handlePayment}>Pay Now</button>
+      {paymentStatus && <p>{paymentStatus}</p>}
+    </div>
   );
 };
 
-export default App;
+export default ChapaPayment;

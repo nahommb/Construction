@@ -4,6 +4,7 @@ import {color,space} from 'styled-system'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { NavbarItems } from './navbarItems';
 
 
 
@@ -120,9 +121,7 @@ return <>
     <Navbarbranding>
         <p>iConstruction</p>
     </Navbarbranding>
-    <Navbarsearch>
-    
-    </Navbarsearch>
+    <NavbarItems></NavbarItems>
     <Navbarelements>
        <div>{t('about')}</div>
        <Button color='red' onClick={()=>changeLanguage('en')}>engUSA</Button>

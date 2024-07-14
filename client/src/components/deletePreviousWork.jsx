@@ -22,18 +22,20 @@ const deleteResponse = useSelector((state)=>state.previousWorkData.delete_respon
         setId(id);
         setShowWarning(true);
       // Automatically hide the warning after 60 seconds
-      setTimeout(() => setShowWarning(false), 60000);
+      setTimeout(() => setShowWarning(false), 20000);
       
     }
   
 
     useEffect(()=>{
      dispatch(getPreviousWorkAction())
-    },[])
+     console.log('dispatch') 
+     
+    },[dispatch])
 
 if(deleteResponse==='Deleted successfully')
   {
-     window.location.reload();
+    window.location.reload();
   }
 
     const getData = useSelector((state)=>state.previousWorkData.previousWorkData)
