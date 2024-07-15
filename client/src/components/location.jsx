@@ -15,17 +15,24 @@ export const Location = ()=>{
 
 const LocationBox = styled.div`
  height:500px;
- width:100%;
+ width:99.1%;
+ @media screen and (max-width: 768px){
+     height:300px;
+    },
 `;
 
 const Footer = styled.div`
  height:322px;
- width:99.0%;
+ width:100.0%;
+ padding-top:10px;
  ${'' /* border:4px solid orange; */}
  border-radius:50px 0px 50px 0px;
  border-bottom:none;
  border-top:none;
  margin-bottom:30px;
  background:#2D3E4E;
+ @media screen and (max-width: 768px){
+     height:220px;
+    },
 
 `;

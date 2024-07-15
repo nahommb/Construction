@@ -5,9 +5,12 @@ height:300px;
 background-color:#2D3E4E;
 display:flex;
 justify-content:space-between;
-padding:10px 0px 0px 80px;
+padding:10px 10px 0px 10px;
 align-items:center;
 margin-bottom:20px;
+@media screen and (max-width: 768px){
+     height:200px;
+    },
 `;
 
 const FooterBox = styled.div`

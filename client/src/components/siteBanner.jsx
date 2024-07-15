@@ -10,6 +10,9 @@ position:relative;
 opacity:0.8;
 top:-60px;
 z-index:-1;
+@media screen and (max-width:600px){
+    height:300px;
+   }
 `;
 
 const SiteBanner = ()=>{

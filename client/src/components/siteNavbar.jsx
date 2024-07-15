@@ -10,6 +10,11 @@ const Navbar = styled.div`
    background-color:#2D3E4E;
    padding-left:150px;
    padding-top:20px;
+   @media screen and (max-width:600px){
+      padding:0px;
+      height:60px;
+   }
+
 `;
 
 const InformationBox = styled.div `
@@ -20,6 +25,7 @@ const InformationBox = styled.div `
     color:silver;
     display:flex;
     align-items:center;
+    
 `;
 
 const Circle = styled.div`
@@ -28,6 +34,10 @@ const Circle = styled.div`
    width:30px;
    border-radius:50%;
    margin-right:10px;
+   @media screen and (max-width:600px){
+      height:15px;
+      width:15px;
+   }
 `;
 
 const CompanyNav = styled.div`
@@ -42,6 +52,9 @@ const CompanyNav = styled.div`
   padding-left:20px;
   align-items:center;
   color:white;
+  @media screen and (max-width:600px){
+      height:40px;
+   }
 `;
 
 return <>

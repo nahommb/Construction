@@ -82,7 +82,7 @@ const Navbarelements = styled.div`
   padding: 1rem;
   @media screen and (max-width: 768px){
     ${'' /* width:10rem; */}
-    margin-right:40%;
+    ${'' /* margin-right:40%; */}
     },
 `; 
 

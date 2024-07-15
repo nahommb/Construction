@@ -20,7 +20,11 @@ display:flex;
 ${'' /* margin-right:20px; */}
 ${'' /* justify-content:space-between; */}
 ${'' /* align-items:center; */}
-
+@media screen and (max-width:600px){
+    height:40px;
+    font-size:9px;
+    
+   }
 `;
 
 const SiteIcon = styled.div`

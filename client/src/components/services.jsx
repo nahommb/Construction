@@ -3,8 +3,10 @@ import { useTranslation } from "react-i18next";
 
 const ServiceContainer = styled.div`
 ${'' /* background-color:#D9D9D9; */}
-height:300px;
-display:flex;
+${'' /* height:300px; */}
+display:grid;
+grid-template-columns: repeat(auto-fill, minmax(100px,300px));
+grid-gap:5px;
 justify-content:space-between;
 align-items:center;
 padding:10px 70px 10px 70px;
@@ -21,6 +23,10 @@ margin-right:10px;
 ${'' /* justify-content:space-between; */}
 ${'' /* align-items:center; */}
 color:white;
+@media screen and (max-width:600px){
+   height:80px;
+   font-size:8px;
+   }
 `;
 
 const SiteIcon = styled.div`

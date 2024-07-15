@@ -11,6 +11,10 @@ z-index:-1;
 display:flex;
 justify-content:space-between;
 align-items:center;
+@media screen and (max-width:600px){
+    height:400px;
+
+   }
 `;
 const Content = styled.div`
 height:700px;
@@ -19,6 +23,11 @@ ${'' /* background-color:yellow; */}
 background-image:url();
 margin:auto;
 padding-top:60px;
+@media screen and (max-width:600px){
+    height:300px;
+    font-size:8px;
+    width:30%;
+   }
 `;
 const ImageContent = styled.div`
 height:500px;
@@ -29,6 +38,9 @@ background-image:url(${bannerImage});
 ${'' /* background-color:red; */}
 background-position:center;
 background-size:cover;
+@media screen and (max-width:600px){
+    height:200px;
+   }
 `;
 
 const P = styled.p`
