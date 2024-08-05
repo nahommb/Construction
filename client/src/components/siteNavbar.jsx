@@ -4,7 +4,7 @@ const SiteNavbar = (props)=>{
 
 const Navbar = styled.div`
    display:flex;
-   ${'' /* justify-content:space-between; */}
+   justify-content:space-around;
    height:70px;
    color:white;
    background-color:#2D3E4E;
@@ -13,6 +13,8 @@ const Navbar = styled.div`
    @media screen and (max-width:600px){
       padding:0px;
       height:60px;
+      
+
    }
 
 `;
@@ -63,7 +65,7 @@ return <>
            <Circle></Circle>
             <div>
             <p>Email</p>
-            <p>neymar@gmail.com</p>
+            <p>company@gmail.com</p>
             </div>
         </InformationBox>
         <InformationBox>

@@ -7,6 +7,7 @@ display:grid;
 grid-template-columns: repeat(auto-fill, minmax(12rem,20rem));
 grid-gap:35px;
 ${'' /* width:100%; */}
+margin-top:40px;
 padding:10px 2% 10px 2%;
 `;
 

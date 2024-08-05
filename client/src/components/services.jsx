@@ -6,10 +6,10 @@ ${'' /* background-color:#D9D9D9; */}
 ${'' /* height:300px; */}
 display:grid;
 grid-template-columns: repeat(auto-fill, minmax(100px,300px));
-grid-gap:5px;
+grid-gap:25px;
 justify-content:space-between;
 align-items:center;
-padding:10px 70px 10px 70px;
+padding:10px 10% 10px 8%;
 
 `;
 const ServiceBox = styled.div`
@@ -17,9 +17,9 @@ height:150px;
 width:20em;
 background-color:#FF7B00;
 border-radius:10px;
-padding:30px;
+padding:20px;
 display:flex;
-margin-right:10px;
+margin-right:50px;
 ${'' /* justify-content:space-between; */}
 ${'' /* align-items:center; */}
 color:white;

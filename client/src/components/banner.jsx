@@ -59,9 +59,9 @@ return <>
        <Box></Box> */}
 
    </BannerElement>
-    <div style={{height:'400px',backgroundImage:'',position:'static',top:'0px',display:'flex',alignItems:'end',marginBottom:'30px',padding:'0px 40px 0px 40px'}}>
+    <BannerBottomTextContainer>
     <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary, making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful of model sentence structures, to generate Lorem Ipsum which looks reasonable. The generated Lorem Ipsum is therefore always free from repetition, injected humour, or non-characteristic words etc.</p>
-</div>
+</BannerBottomTextContainer>
 </>
 }
 
@@ -140,4 +140,18 @@ height:80%;
 `;
 const InfoBox = styled.div`
  padding:5%;
+`;
+const BannerBottomTextContainer = styled.div`
+height:400px;
+background-image:;
+position:static;
+top:0px;
+display:flex;
+align-items:end;
+margin-bottom:30px;
+padding:0px 40px 0px 40px;
+
+@media screen and (max-width:600px){
+    height:200px;
+}
 `;

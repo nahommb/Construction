@@ -21,9 +21,9 @@ const PreviousWork = ()=>{
          // console.log(data.name)
           return <WorkBox key={index}>
           <Image src={`http://localhost:3001/${data.image_url}`} alt='image'/>
-          <p style={{margin:'8px 5px'}}>{data.building_name}</p> 
+          <p style={{margin:'8px 5px',fontWeight:'bolder'}}>{data.building_name}</p> 
           <p>{data.description}</p>
-          <p>{data.location}</p>
+          <p style={{color:'black'}}>{data.location}</p>
           </WorkBox>
         })):(<p>loading</p>)}
        
